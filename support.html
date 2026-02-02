@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Sniffr ATX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fafb;
+        }
+
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #F97316;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #F97316;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .content {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .intro {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .contact-box {
+            background-color: #FFF7ED;
+            border: 2px solid #F97316;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-box p {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box a {
+            color: #F97316;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #1f2937;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            font-size: 1.25rem;
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item p {
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item ol, .faq-item ul {
+            margin-left: 1.5rem;
+            color: #4b5563;
+        }
+
+        .faq-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: #F97316;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: #9ca3af;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: #F97316;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .contact-box {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Sniffr ATX</a>
+            <ul class="nav-links">
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <h1>Support</h1>
+            <p class="intro">Need help? We're here for you. Check out our FAQ below or reach out directly.</p>
+
+            <div class="contact-box">
+                <h2>Get in Touch</h2>
+                <p>Have a question or issue? Email us at:</p>
+                <a href="mailto:support@sniffratx.com">support@sniffratx.com</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">We typically respond within 24 hours.</p>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>How do I create an account?</h3>
+                <p>Creating an account is easy:</p>
+                <ol>
+                    <li>Download Sniffr ATX from the App Store</li>
+                    <li>Open the app and tap "Sign Up"</li>
+                    <li>Enter your name, email address, and create a password</li>
+                    <li>Add a profile photo (optional)</li>
+                    <li>Create your first dog profile</li>
+                </ol>
+                <p>That's it! You're ready to start connecting with other dog owners in Austin.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I scan QR codes to connect with other users?</h3>
+                <p>Connecting with other dog owners is simple:</p>
+                <ol>
+                    <li>At the dog park or any meetup, tap the "Scan QR" button in the app</li>
+                    <li>Allow camera access when prompted</li>
+                    <li>Point your camera at the other user's QR code</li>
+                    <li>Once scanned, you'll be instantly connected</li>
+                </ol>
+                <p>To share your own QR code, tap your profile icon and select "Show QR Code."</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I plan playdates with other dogs?</h3>
+                <p>Planning playdates is built right into the app:</p>
+                <ol>
+                    <li>Go to the Calendar tab</li>
+                    <li>Tap the "+" button to create a new event</li>
+                    <li>Choose "Playdate" as the event type</li>
+                    <li>Select the date, time, and location</li>
+                    <li>Invite connections by selecting their names</li>
+                    <li>Add any notes or details</li>
+                    <li>Tap "Create Event"</li>
+                </ol>
+                <p>All invited users will receive a notification and the event will appear in their calendars.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I delete my account?</h3>
+                <p>We're sorry to see you go. To delete your account:</p>
+                <ol>
+                    <li>Open the app and go to your Profile</li>
+                    <li>Tap the Settings icon (gear icon in the top right)</li>
+                    <li>Scroll down and tap "Account Settings"</li>
+                    <li>Tap "Delete Account"</li>
+                    <li>Confirm your decision</li>
+                </ol>
+                <p>Your account and all associated data will be permanently deleted within 30 days. This action cannot be undone.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What permissions does the app need?</h3>
+                <p>Sniffr ATX requests the following permissions:</p>
+                <ul>
+                    <li><strong>Camera:</strong> To scan QR codes for connecting with other users</li>
+                    <li><strong>Photos:</strong> To upload profile pictures and dog photos</li>
+                    <li><strong>Calendar:</strong> To sync playdate and vet appointment reminders</li>
+                    <li><strong>Notifications:</strong> To send reminders about upcoming events</li>
+                </ul>
+                <p>All permissions are optional, but some features may not work without them. You can manage permissions in your device settings.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is my data private and secure?</h3>
+                <p>Yes. We take your privacy seriously. We use industry-standard encryption and secure servers to protect your data. We never sell your personal information. For more details, please read our <a href="privacy.html">Privacy Policy</a>.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Still have questions?</h3>
+                <p>If you couldn't find the answer you're looking for, please email us at <a href="mailto:support@sniffratx.com">support@sniffratx.com</a>. We're happy to help!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="support.html">Support</a>
+        </div>
+        <p>&copy; 2025 Sniffr ATX. All rights reserved.</p>
+    </footer>
+</body>
+</html>
