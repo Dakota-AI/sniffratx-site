@@ -3,68 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sniffr ATX - Dog Park Social Network for Austin</title>
-    <meta name="description" content="Connect with dog owners at Austin's best dog parks. Scan QR codes, message friends, plan playdates. Download Sniffr ATX today.">
+    <title>Sniffr ATX - Dog Park Social App for Austin</title>
+    <meta name="description" content="Connect with dog owners at Austin's best dog parks. Scan QR codes, message friends, plan playdates. Free on the App Store.">
     <meta name="theme-color" content="#F97316">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Dakota-AI/sniffratx-site/main/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sniffratx.app/" />
+    <meta property="og:title" content="Sniffr ATX - Dog Park Social App for Austin" />
+    <meta property="og:description" content="Connect with dog owners at Austin's best parks. Scan QR codes, chat, plan playdates. Free on the App Store." />
+    <meta property="og:image" content="https://sniffratx.app/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sniffr ATX - Dog Park Social App" />
+    <meta name="twitter:description" content="Meet dog owners at Austin parks. QR connect, chat, plan playdates." />
+    <meta name="twitter:image" content="https://sniffratx.app/og-image.png" />
+
+    <!-- Apple Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=6758127485" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://sniffratx.app/" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Sniffr ATX",
+      "description": "Dog park social app for Austin, TX dog owners. Connect via QR codes, chat, plan playdates.",
+      "operatingSystem": "iOS",
+      "applicationCategory": "SocialNetworkingApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "url": "https://apps.apple.com/app/id6758127485",
+      "image": "https://sniffratx.app/og-image.png"
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --orange: #F97316;
             --orange-light: #FB923C;
-            --orange-glow: rgba(249, 115, 22, 0.15);
+            --orange-dim: rgba(249, 115, 22, 0.12);
+            --orange-glow: rgba(249, 115, 22, 0.25);
             --teal: #0D9488;
-            --teal-light: #14B8A6;
-            --coral: #F87171;
-            --bg-warm: #FFFBF7;
-            --bg-cream: #FFF1E6;
-            --text-primary: #1C1917;
+            --dark: #16120E;
+            --dark-2: #1F1A14;
+            --dark-3: #2A231A;
+            --cream: #FFFBF7;
+            --cream-2: #FFF4E8;
+            --white: #FFFFFF;
+            --text-on-dark: rgba(255,255,255,0.92);
+            --text-on-dark-muted: rgba(255,255,255,0.5);
+            --text-primary: #1C1510;
             --text-secondary: #57534E;
             --text-muted: #A8A29E;
-            --white: #FFFFFF;
-            --shadow-sm: 0 1px 3px rgba(28, 25, 23, 0.06);
-            --shadow-md: 0 4px 16px rgba(28, 25, 23, 0.08);
-            --shadow-lg: 0 12px 40px rgba(28, 25, 23, 0.12);
-            --shadow-glow: 0 0 60px rgba(249, 115, 22, 0.2);
+            --border-dark: rgba(255,255,255,0.08);
+            --border-light: rgba(28, 25, 23, 0.07);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
+            font-family: 'DM Sans', -apple-system, sans-serif;
             color: var(--text-primary);
-            background: var(--bg-warm);
+            background: var(--dark);
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* NAV */
+        /* ── NAV ─────────────────────────────────── */
         header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(255, 251, 247, 0.85);
+            background: rgba(22, 18, 14, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(28, 25, 23, 0.06);
+            border-bottom: 1px solid var(--border-dark);
             transition: box-shadow 0.3s;
         }
 
-        header.scrolled {
-            box-shadow: var(--shadow-sm);
-        }
+        header.scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.4); }
 
         nav {
             max-width: 1100px;
@@ -76,16 +104,17 @@
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.35rem;
             font-weight: 800;
-            color: var(--orange);
+            color: var(--white);
             text-decoration: none;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
 
-        .logo span {
-            color: var(--text-muted);
-            font-weight: 500;
+        .logo em {
+            color: var(--orange);
+            font-style: normal;
         }
 
         .nav-links {
@@ -96,485 +125,662 @@
         }
 
         .nav-links a {
-            color: var(--text-secondary);
+            color: var(--text-on-dark-muted);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--orange);
-        }
+        .nav-links a:hover { color: var(--white); }
 
         .nav-cta {
-            background: var(--orange);
+            background: var(--orange) !important;
             color: var(--white) !important;
             padding: 0.5rem 1.25rem;
             border-radius: 100px;
             font-weight: 600 !important;
-            transition: background 0.2s, transform 0.2s !important;
+            transition: opacity 0.2s, transform 0.2s !important;
+            font-size: 0.88rem !important;
         }
 
         .nav-cta:hover {
-            background: var(--orange-light);
-            transform: translateY(-1px);
+            opacity: 0.88 !important;
+            transform: translateY(-1px) !important;
         }
 
-        /* HERO */
+        /* ── HERO ────────────────────────────────── */
         .hero {
-            padding: 8rem 2rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 8rem 2rem 5rem;
             position: relative;
             overflow: hidden;
+            background: var(--dark);
         }
 
+        /* Noise texture overlay */
         .hero::before {
             content: '';
             position: absolute;
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.4;
             pointer-events: none;
         }
+
+        /* Orange radial glow */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(249,115,22,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 780px; }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--bg-cream);
-            border: 1px solid rgba(249, 115, 22, 0.2);
-            padding: 0.4rem 1rem;
+            background: rgba(249,115,22,0.12);
+            border: 1px solid rgba(249,115,22,0.3);
+            padding: 0.45rem 1.1rem;
             border-radius: 100px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            color: var(--orange);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.6s ease;
+            color: var(--orange-light);
+            letter-spacing: 0.01em;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .badge-dot {
+            width: 7px; height: 7px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.85); }
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(3rem, 7vw, 5rem);
             font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
-            max-width: 700px;
-            margin: 0 auto 1.25rem;
-            animation: fadeInUp 0.6s ease 0.1s both;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.7s ease 0.1s both;
         }
 
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--orange) 0%, var(--coral) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        .hero h1 .orange { color: var(--orange); }
 
         .hero p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 520px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-on-dark-muted);
+            max-width: 500px;
             margin: 0 auto 2.5rem;
-            line-height: 1.7;
-            animation: fadeInUp 0.6s ease 0.2s both;
+            line-height: 1.75;
+            font-weight: 400;
+            animation: fadeUp 0.7s ease 0.2s both;
         }
 
-        .hero-actions {
+        .hero-buttons {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
-            animation: fadeInUp 0.6s ease 0.3s both;
+            animation: fadeUp 0.7s ease 0.3s both;
         }
 
-        .btn-primary {
+        /* App Store Button */
+        .btn-appstore {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--orange);
-            color: var(--white);
-            padding: 0.9rem 2rem;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            box-shadow: 0 4px 16px rgba(249, 115, 22, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--orange-light);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(249, 115, 22, 0.35);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             background: var(--white);
-            color: var(--text-primary);
-            padding: 0.9rem 2rem;
+            color: var(--dark);
+            padding: 0.85rem 1.75rem;
             border-radius: 14px;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 0.95rem;
             text-decoration: none;
-            border: 1.5px solid rgba(28, 25, 23, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+            font-family: 'Sora', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-appstore:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+        }
+
+        .btn-appstore svg { flex-shrink: 0; }
+
+        .btn-appstore-inner { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
+        .btn-appstore-sub { font-size: 0.68rem; font-weight: 500; opacity: 0.6; font-family: 'DM Sans', sans-serif; }
+        .btn-appstore-main { font-size: 1rem; font-weight: 700; }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-on-dark-muted);
+            padding: 0.85rem 1.75rem;
+            border-radius: 14px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: 1px solid var(--border-dark);
             transition: all 0.2s;
         }
 
-        .btn-secondary:hover {
-            border-color: var(--orange);
-            color: var(--orange);
+        .btn-ghost:hover {
+            color: var(--white);
+            border-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
 
-        /* PHONE MOCKUP */
-        .hero-visual {
+        /* Hero social proof */
+        .hero-proof {
             margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: fadeUp 0.7s ease 0.4s both;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-on-dark-muted);
+            font-size: 0.85rem;
+        }
+
+        .proof-icon { font-size: 1rem; }
+
+        .proof-divider {
+            width: 4px; height: 4px;
+            background: var(--border-dark);
+            border-radius: 50%;
+        }
+
+        /* Hero visual - floating phone + cards */
+        .hero-visual {
             position: relative;
-            animation: fadeInUp 0.8s ease 0.4s both;
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+            animation: fadeUp 0.9s ease 0.5s both;
+        }
+
+        .phone-wrap {
+            position: relative;
+            display: inline-block;
         }
 
         .phone-frame {
-            width: 280px;
-            height: 560px;
-            background: linear-gradient(145deg, var(--orange) 0%, var(--orange-light) 50%, var(--coral) 100%);
-            border-radius: 40px;
-            margin: 0 auto;
-            padding: 12px;
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            width: 270px;
+            height: 540px;
+            background: linear-gradient(160deg, #2A231A 0%, #1C1510 100%);
+            border-radius: 44px;
+            padding: 10px;
+            box-shadow:
+                0 0 0 1px rgba(255,255,255,0.08),
+                0 30px 80px rgba(0,0,0,0.6),
+                0 0 60px rgba(249,115,22,0.12);
             position: relative;
         }
 
+        .phone-notch {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px; height: 28px;
+            background: var(--dark);
+            border-radius: 0 0 20px 20px;
+            z-index: 2;
+        }
+
         .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: var(--white);
-            border-radius: 30px;
+            width: 100%; height: 100%;
+            background: var(--cream);
+            border-radius: 36px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            padding: 2rem;
-            overflow: hidden;
         }
 
-        .phone-screen .mock-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .phone-screen .mock-qr {
-            width: 120px;
-            height: 120px;
-            background: var(--text-primary);
-            border-radius: 12px;
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            grid-template-rows: repeat(6, 1fr);
-            gap: 3px;
-            padding: 10px;
-        }
-
-        .phone-screen .mock-qr span {
-            background: var(--white);
-            border-radius: 2px;
-        }
-
-        .phone-screen .mock-qr span:nth-child(odd) {
-            background: var(--text-primary);
-        }
-
-        .phone-screen .mock-text {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: center;
-        }
-
-        .phone-screen .mock-btn {
+        .screen-header {
             background: var(--orange);
+            padding: 2.5rem 1rem 1rem;
+            text-align: center;
             color: var(--white);
-            padding: 0.6rem 1.5rem;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            font-weight: 600;
         }
 
-        .floating-card {
-            position: absolute;
+        .screen-header-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .screen-body {
+            flex: 1;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .screen-dog-card {
             background: var(--white);
-            border-radius: 16px;
-            padding: 1rem 1.25rem;
-            box-shadow: var(--shadow-lg);
+            border-radius: 12px;
+            padding: 0.7rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            animation: float 3s ease-in-out infinite;
+            gap: 0.6rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
 
-        .floating-card.left {
-            left: -60px;
-            top: 120px;
-            animation-delay: 0s;
-        }
-
-        .floating-card.right {
-            right: -60px;
-            top: 280px;
-            animation-delay: 1.5s;
-        }
-
-        .floating-card .card-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+        .dog-avatar {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            flex-shrink: 0;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
+        }
+
+        .dog-info { flex: 1; }
+        .dog-name { font-size: 0.75rem; font-weight: 700; color: var(--text-primary); font-family: 'Sora', sans-serif; }
+        .dog-breed { font-size: 0.65rem; color: var(--text-muted); }
+
+        .dog-badge {
+            font-size: 0.6rem;
+            background: var(--orange-dim);
+            color: var(--orange);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .screen-tab-bar {
+            background: var(--white);
+            border-top: 1px solid var(--border-light);
+            padding: 0.6rem;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .tab-icon {
+            font-size: 1.1rem;
+            opacity: 0.4;
+        }
+
+        .tab-icon.active { opacity: 1; }
+
+        /* Floating notification cards */
+        .float-card {
+            position: absolute;
+            background: var(--white);
+            border-radius: 14px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.04);
+            white-space: nowrap;
+        }
+
+        .float-card.card-left {
+            left: -140px;
+            top: 100px;
+            animation: floatA 4s ease-in-out infinite;
+        }
+
+        .float-card.card-right {
+            right: -140px;
+            top: 240px;
+            animation: floatB 4s ease-in-out 2s infinite;
+        }
+
+        @keyframes floatA {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes floatB {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .float-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
             flex-shrink: 0;
         }
 
-        .floating-card .card-icon.orange { background: var(--bg-cream); }
-        .floating-card .card-icon.teal { background: #CCFBF1; }
+        .float-icon.orange { background: var(--cream-2); }
+        .float-icon.teal { background: #CCFBF1; }
 
-        .floating-card .card-text {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-primary);
+        .float-text { font-size: 0.78rem; font-weight: 700; color: var(--text-primary); }
+        .float-sub { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.1rem; }
+
+        /* ── HOW IT WORKS ────────────────────────── */
+        .how {
+            background: var(--cream);
+            padding: 6rem 2rem;
         }
 
-        .floating-card .card-sub {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        /* HOW IT WORKS */
-        .how-it-works {
-            padding: 5rem 2rem;
+        .section-inner {
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .section-label {
+        .section-eyebrow {
             display: inline-block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             color: var(--teal);
             margin-bottom: 0.75rem;
         }
 
         .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 800;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
             color: var(--text-primary);
+            line-height: 1.15;
             margin-bottom: 1rem;
         }
 
-        .section-subtitle {
+        .section-sub {
             font-size: 1.05rem;
             color: var(--text-secondary);
-            max-width: 500px;
-            line-height: 1.7;
-            margin-bottom: 3rem;
+            max-width: 480px;
+            line-height: 1.75;
+            margin-bottom: 3.5rem;
         }
 
         .steps {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 2px;
+            background: var(--border-light);
+            border-radius: 20px;
+            overflow: hidden;
         }
 
         .step {
-            text-align: center;
-            padding: 2rem 1.5rem;
+            background: var(--cream);
+            padding: 2.5rem 2rem;
+            position: relative;
         }
 
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
+        .step:hover { background: var(--white); }
+
+        .step-num {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.5rem;
             font-weight: 800;
-            font-size: 1.1rem;
-            margin: 0 auto 1.25rem;
+            color: rgba(249,115,22,0.12);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .step-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: block;
         }
 
         .step h3 {
+            font-family: 'Sora', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
 
         .step p {
             font-size: 0.9rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* FEATURES */
+        /* ── FEATURES ────────────────────────────── */
         .features {
-            padding: 5rem 2rem;
-            background: var(--white);
+            background: var(--dark-2);
+            padding: 6rem 2rem;
         }
 
-        .features-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+        .features .section-eyebrow { color: var(--orange-light); }
+
+        .features .section-title { color: var(--white); }
+
+        .features .section-sub { color: var(--text-on-dark-muted); }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 1.5px;
+            background: var(--border-dark);
+            border-radius: 20px;
+            overflow: hidden;
         }
 
         .feature-card {
-            padding: 2rem;
-            border-radius: 20px;
-            background: var(--bg-warm);
-            border: 1px solid rgba(28, 25, 23, 0.04);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--dark-2);
+            padding: 2.5rem 2rem;
+            transition: background 0.2s;
         }
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
+        .feature-card:hover { background: var(--dark-3); }
 
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .feature-emoji {
+            font-size: 2rem;
             margin-bottom: 1.25rem;
-            font-size: 1.5rem;
+            display: block;
         }
-
-        .feature-icon.orange { background: var(--bg-cream); }
-        .feature-icon.teal { background: #CCFBF1; }
-        .feature-icon.coral { background: #FEE2E2; }
-        .feature-icon.purple { background: #EDE9FE; }
 
         .feature-card h3 {
-            font-size: 1.1rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+            color: var(--white);
+            letter-spacing: -0.02em;
         }
 
         .feature-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
+            font-size: 0.88rem;
+            color: var(--text-on-dark-muted);
+            line-height: 1.7;
         }
 
-        /* AUSTIN SECTION */
+        /* ── AUSTIN ──────────────────────────────── */
         .austin {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            text-align: center;
+            background: var(--cream);
+            padding: 6rem 2rem;
         }
+
+        .austin .section-inner { text-align: center; }
 
         .austin-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 2px;
+            background: var(--border-light);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 3.5rem;
         }
 
         .stat {
-            padding: 2rem;
+            background: var(--cream);
+            padding: 2.5rem 2rem;
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 2.8rem;
             font-weight: 800;
             color: var(--orange);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.04em;
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-secondary);
-            margin-top: 0.25rem;
+            margin-top: 0.5rem;
+            line-height: 1.5;
         }
 
-        /* CTA */
+        /* Parks tags */
+        .parks-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 3rem;
+        }
+
+        .park-tag {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ── CTA ─────────────────────────────────── */
         .cta {
-            padding: 5rem 2rem;
+            background: var(--dark);
+            padding: 6rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .cta-card {
-            max-width: 700px;
+        .cta::before {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(249,115,22,0.14) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
             margin: 0 auto;
-            background: linear-gradient(145deg, var(--orange) 0%, var(--orange-light) 50%, var(--coral) 100%);
-            border-radius: 28px;
-            padding: 4rem 3rem;
-            color: var(--white);
-            box-shadow: 0 20px 60px rgba(249, 115, 22, 0.25);
         }
 
-        .cta-card h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        .cta h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
             font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
+            letter-spacing: -0.04em;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
         }
 
-        .cta-card p {
+        .cta h2 .orange { color: var(--orange); }
+
+        .cta p {
             font-size: 1.05rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--text-on-dark-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
         }
 
-        .btn-white {
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-appstore-lg {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--white);
-            color: var(--orange);
-            padding: 0.9rem 2rem;
-            border-radius: 14px;
+            gap: 0.85rem;
+            background: var(--orange);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 16px;
             font-weight: 700;
             font-size: 1rem;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 32px rgba(249,115,22,0.35);
+            font-family: 'Sora', sans-serif;
+            letter-spacing: -0.01em;
         }
 
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        .btn-appstore-lg:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(249,115,22,0.45);
         }
 
-        /* FOOTER */
+        .btn-appstore-lg-inner { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
+        .btn-appstore-lg-sub { font-size: 0.7rem; font-weight: 500; opacity: 0.75; font-family: 'DM Sans', sans-serif; }
+        .btn-appstore-lg-main { font-size: 1.05rem; font-weight: 700; }
+
+        .cta-note {
+            margin-top: 1.5rem;
+            font-size: 0.82rem;
+            color: var(--text-on-dark-muted);
+        }
+
+        /* ── FOOTER ──────────────────────────────── */
         footer {
-            background: var(--text-primary);
-            color: var(--text-muted);
+            background: var(--dark-2);
+            border-top: 1px solid var(--border-dark);
             padding: 3rem 2rem 2rem;
         }
 
@@ -588,384 +794,332 @@
             gap: 2rem;
         }
 
-        .footer-brand .logo {
-            color: var(--white);
+        .footer-logo {
+            font-family: 'Sora', sans-serif;
             font-size: 1.2rem;
-        }
-
-        .footer-brand p {
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .footer-links-section h4 {
+            font-weight: 800;
             color: var(--white);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .footer-links-section ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .footer-links-section a {
-            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.85rem;
+            letter-spacing: -0.03em;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo em { color: var(--orange); font-style: normal; }
+        .footer-tagline { font-size: 0.82rem; color: var(--text-on-dark-muted); }
+
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-on-dark-muted);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+        .footer-col a {
+            color: var(--text-on-dark-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
             transition: color 0.2s;
         }
 
-        .footer-links-section a:hover {
-            color: var(--orange);
-        }
+        .footer-col a:hover { color: var(--white); }
 
         .footer-bottom {
             max-width: 1100px;
             margin: 2rem auto 0;
             padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid var(--border-dark);
             text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
+            font-size: 0.78rem;
+            color: var(--text-on-dark-muted);
         }
 
-        /* EMAIL SIGNUP */
-        .signup-form-container {
-            max-width: 480px;
-            margin: 0 auto;
+        /* ── ANIMATIONS ──────────────────────────── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .email-form {
-            display: flex;
-            gap: 0.5rem;
-            width: 100%;
-        }
-
-        .email-input {
-            flex: 1;
-            padding: 0.9rem 1.25rem;
-            border-radius: 14px;
-            border: 1.5px solid rgba(28, 25, 23, 0.12);
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--text-primary);
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .email-input:focus {
-            border-color: var(--orange);
-        }
-
-        .email-input-dark {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
-            color: var(--white);
-        }
-
-        .email-input-dark::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .email-input-dark:focus {
-            border-color: var(--white);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .email-btn {
-            border: none;
-            cursor: pointer;
-            white-space: nowrap;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .cta-form .email-btn {
-            padding: 0.9rem 1.75rem;
-        }
-
-        .signup-note {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.75rem;
-            text-align: center;
-        }
-
-        .signup-success {
-            background: #ECFDF5;
-            border: 1.5px solid #6EE7B7;
-            border-radius: 14px;
-            padding: 1rem 1.5rem;
-            color: #065F46;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-align: center;
-        }
-
-        .signup-error {
-            color: var(--coral);
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-            text-align: center;
+        /* ── RESPONSIVE ──────────────────────────── */
+        @media (max-width: 900px) {
+            .float-card { display: none; }
         }
 
         @media (max-width: 768px) {
-            .email-form {
-                flex-direction: column;
-            }
+            .hero { padding: 7rem 1.5rem 4rem; }
+            .hero h1 { font-size: 2.6rem; }
 
-            .email-btn {
-                width: 100%;
-                justify-content: center;
-            }
-        }
+            .steps { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .austin-stats { grid-template-columns: 1fr; }
 
-        /* ANIMATIONS */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+            .nav-links { gap: 1rem; }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn-appstore, .btn-ghost { width: 100%; max-width: 280px; justify-content: center; }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 7rem 1.5rem 3rem;
-            }
+            .hero-proof { flex-direction: column; gap: 0.75rem; }
+            .proof-divider { display: none; }
 
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .austin-stats {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .stat {
-                padding: 1.25rem;
-            }
-
-            .floating-card {
-                display: none;
-            }
-
-            .phone-frame {
-                width: 240px;
-                height: 480px;
-            }
-
-            .cta-card {
-                padding: 3rem 2rem;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                justify-content: center;
-                max-width: 280px;
-            }
+            .footer-inner { flex-direction: column; text-align: center; align-items: center; }
         }
     </style>
 </head>
 <body>
 
+<!-- ── NAV ──────────────────────────────────────── -->
 <header id="header">
     <nav>
-        <a href="/" class="logo">Sniffr <span>ATX</span></a>
+        <a href="/" class="logo">Sniffr <em>ATX</em></a>
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="support.html">Support</a></li>
             <li><a href="privacy.html">Privacy</a></li>
-            <li><a href="#download" class="nav-cta">Join Waitlist</a></li>
+            <li>
+                <a href="https://apps.apple.com/app/id6758127485" class="nav-cta" target="_blank" rel="noopener">
+                    Download Free
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
 
+<!-- ── HERO ─────────────────────────────────────── -->
 <section class="hero">
-    <div class="hero-badge">Launching Soon on iOS</div>
-    <h1>Your dog's <span class="highlight">social life</span> starts here</h1>
-    <p>Meet dog owners at Austin's best parks. Scan a QR code, skip the awkward number exchange, and build your pup's pack.</p>
-    <div class="signup-form-container" style="animation: fadeInUp 0.6s ease 0.3s both;">
-        <form id="hero-signup" class="email-form" onsubmit="handleSignup(event, 'hero')">
-            <input type="email" placeholder="Enter your email" required class="email-input" />
-            <button type="submit" class="btn-primary email-btn">Get Early Access</button>
-        </form>
-        <p class="signup-note">Be first to know when we launch. No spam, ever.</p>
-    </div>
-    <div class="hero-actions" style="margin-top: 1rem;">
-        <a href="#how" class="btn-secondary">
-            See How It Works
-        </a>
-    </div>
-    <div class="hero-visual">
-        <div class="phone-frame">
-            <div class="phone-screen">
-                <div class="mock-header">My QR Code</div>
-                <div class="mock-qr">
-                    <span></span><span></span><span></span><span></span><span></span><span></span>
-                    <span></span><span></span><span></span><span></span><span></span><span></span>
-                    <span></span><span></span><span></span><span></span><span></span><span></span>
-                    <span></span><span></span><span></span><span></span><span></span><span></span>
-                    <span></span><span></span><span></span><span></span><span></span><span></span>
-                    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Now on the App Store — Free
+        </div>
+
+        <h1>Your dog's<br><span class="orange">social life</span><br>starts here</h1>
+
+        <p>Meet dog owners at Austin's best parks. Scan a QR code, skip the awkward number exchange, and build your pup's pack.</p>
+
+        <div class="hero-buttons">
+            <a href="https://apps.apple.com/app/id6758127485" class="btn-appstore" target="_blank" rel="noopener">
+                <svg width="22" height="26" viewBox="0 0 22 26" fill="none">
+                    <path d="M18.07 13.77c-.03-3.14 2.56-4.65 2.68-4.73-1.46-2.14-3.73-2.43-4.53-2.46-1.93-.2-3.77 1.14-4.75 1.14-.98 0-2.5-1.11-4.12-1.08C5.07 6.68 3.08 7.9 1.99 9.8-.27 13.66.87 19.33 3.06 22.44c1.08 1.56 2.37 3.3 4.06 3.24 1.63-.07 2.24-1.05 4.2-1.05 1.96 0 2.51 1.05 4.23 1.02 1.75-.03 2.86-1.58 3.93-3.15.24-.35.47-.71.66-1.08-3.3-1.27-5.07-4.65-5.07-7.65zM15.18 4.4C16.07 3.33 16.67 1.83 16.5.3c-1.32.06-2.93.88-3.87 1.93-.84.95-1.58 2.47-1.38 3.93 1.47.11 2.97-.75 3.93-1.76z" fill="#1C1510"/>
+                </svg>
+                <div class="btn-appstore-inner">
+                    <span class="btn-appstore-sub">Download on the</span>
+                    <span class="btn-appstore-main">App Store</span>
                 </div>
-                <div class="mock-text">Show this at the dog park<br>to connect instantly</div>
-                <div class="mock-btn">Share QR Code</div>
-            </div>
+            </a>
+            <a href="#how" class="btn-ghost">See how it works ↓</a>
         </div>
-        <div class="floating-card left">
-            <div class="card-icon orange">&#x1F436;</div>
-            <div>
-                <div class="card-text">New Connection!</div>
-                <div class="card-sub">Luna wants to be friends</div>
-            </div>
+
+        <div class="hero-proof">
+            <div class="proof-item"><span class="proof-icon">🐾</span> Free forever</div>
+            <div class="proof-divider"></div>
+            <div class="proof-item"><span class="proof-icon">📍</span> Built for Austin</div>
+            <div class="proof-divider"></div>
+            <div class="proof-item"><span class="proof-icon">🔒</span> Private by design</div>
         </div>
-        <div class="floating-card right">
-            <div class="card-icon teal">&#x1F4C5;</div>
-            <div>
-                <div class="card-text">Playdate Tomorrow</div>
-                <div class="card-sub">Zilker Park at 10am</div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="phone-wrap">
+            <div class="phone-frame">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                    <div class="screen-header">
+                        <div class="screen-header-title">🐾 Your Pack</div>
+                    </div>
+                    <div class="screen-body">
+                        <div class="screen-dog-card">
+                            <div class="dog-avatar">🐕</div>
+                            <div class="dog-info">
+                                <div class="dog-name">Max & Sarah</div>
+                                <div class="dog-breed">Golden Retriever · 3 yrs</div>
+                            </div>
+                            <div class="dog-badge">Zilker</div>
+                        </div>
+                        <div class="screen-dog-card">
+                            <div class="dog-avatar">🐩</div>
+                            <div class="dog-info">
+                                <div class="dog-name">Luna & Emma</div>
+                                <div class="dog-breed">Husky Mix · 4 yrs</div>
+                            </div>
+                            <div class="dog-badge">Red Bud</div>
+                        </div>
+                        <div class="screen-dog-card">
+                            <div class="dog-avatar">🐾</div>
+                            <div class="dog-info">
+                                <div class="dog-name">Biscuit & Mike</div>
+                                <div class="dog-breed">Corgi · 2 yrs</div>
+                            </div>
+                            <div class="dog-badge">Mueller</div>
+                        </div>
+                    </div>
+                    <div class="screen-tab-bar">
+                        <div class="tab-icon active">🐾</div>
+                        <div class="tab-icon">📷</div>
+                        <div class="tab-icon">💬</div>
+                        <div class="tab-icon">📅</div>
+                        <div class="tab-icon">👤</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="float-card card-left">
+                <div class="float-icon orange">🐶</div>
+                <div>
+                    <div class="float-text">New Connection!</div>
+                    <div class="float-sub">Luna wants to be friends</div>
+                </div>
+            </div>
+
+            <div class="float-card card-right">
+                <div class="float-icon teal">📅</div>
+                <div>
+                    <div class="float-text">Playdate Tomorrow</div>
+                    <div class="float-sub">Zilker Park · 10am</div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="how-it-works" id="how">
-    <span class="section-label">How It Works</span>
-    <h2 class="section-title">Three steps to growing your pack</h2>
-    <p class="section-subtitle">No usernames to remember. No phone numbers to share. Just scan and connect.</p>
-    <div class="steps">
-        <div class="step">
-            <div class="step-number">1</div>
-            <h3>Show Your Code</h3>
-            <p>Open Sniffr ATX and pull up your unique QR code at the dog park.</p>
-        </div>
-        <div class="step">
-            <div class="step-number">2</div>
-            <h3>Scan & Connect</h3>
-            <p>The other owner scans it. Instant connection. No awkward number exchange.</p>
-        </div>
-        <div class="step">
-            <div class="step-number">3</div>
-            <h3>Plan Playdates</h3>
-            <p>Message your new friend, schedule playdates, and keep your pup's social life thriving.</p>
+<!-- ── HOW IT WORKS ──────────────────────────────── -->
+<section class="how" id="how">
+    <div class="section-inner">
+        <span class="section-eyebrow">How It Works</span>
+        <h2 class="section-title">Three steps to<br>growing your pack</h2>
+        <p class="section-sub">No usernames to remember. No phone numbers to share. Just scan and connect.</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <span class="step-icon">📱</span>
+                <h3>Show Your Code</h3>
+                <p>Open Sniffr ATX and pull up your unique QR code. It's always just one tap away.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <span class="step-icon">📷</span>
+                <h3>Scan & Connect</h3>
+                <p>The other owner scans it. Instant connection — no awkward number exchange needed.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <span class="step-icon">🗓️</span>
+                <h3>Plan Playdates</h3>
+                <p>Message your new friend, schedule meetups, and keep your pup's social life going.</p>
+            </div>
         </div>
     </div>
 </section>
 
+<!-- ── FEATURES ──────────────────────────────────── -->
 <section class="features" id="features">
-    <div class="features-inner">
-        <span class="section-label">Features</span>
-        <h2 class="section-title">Everything your pack needs</h2>
-        <p class="section-subtitle">Built for Austin dog owners who want to stay connected beyond the park gate.</p>
+    <div class="section-inner">
+        <span class="section-eyebrow">Features</span>
+        <h2 class="section-title">Everything your<br>pack needs</h2>
+        <p class="section-sub">Built for Austin dog owners who want to stay connected beyond the park gate.</p>
+
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon orange">&#x1F4F1;</div>
+                <span class="feature-emoji">📲</span>
                 <h3>QR Code Connections</h3>
-                <p>Ditch the phone number exchange. One scan at the park and you're connected for life. Fast, private, zero hassle.</p>
+                <p>Ditch the phone number exchange. One scan at the park and you're connected. Fast, private, zero friction.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon teal">&#x1F4AC;</div>
+                <span class="feature-emoji">💬</span>
                 <h3>Direct Messaging</h3>
-                <p>Chat with your dog's friends' owners. Coordinate meetups, share tips, or just talk about how cute your pups are.</p>
+                <p>Chat with your dog's friends' owners. Coordinate meetups, share park tips, or just swap cute puppy stories.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon coral">&#x1F4C5;</div>
+                <span class="feature-emoji">📅</span>
                 <h3>Calendar & Reminders</h3>
-                <p>Track playdates, vet appointments, and vaccinations all in one place. Syncs with your phone's calendar.</p>
+                <p>Track playdates, vet appointments, and vaccinations. Syncs with your phone's native calendar.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon purple">&#x1F43E;</div>
-                <h3>Dog Profiles</h3>
-                <p>Create a profile for your pup with photos, breed, age, and personality. Let other owners know who they're meeting.</p>
+                <span class="feature-emoji">🗺️</span>
+                <h3>Austin Dog Parks Map</h3>
+                <p>15+ Austin parks mapped with directions. From Zilker to Red Bud Isle — find your nearest off-leash spot.</p>
             </div>
         </div>
     </div>
 </section>
 
+<!-- ── AUSTIN ─────────────────────────────────────── -->
 <section class="austin" id="austin">
-    <span class="section-label">Made for Austin</span>
-    <h2 class="section-title">Austin loves its dogs</h2>
-    <p class="section-subtitle" style="margin: 0 auto;">From Zilker to Red Bud Isle, Austin's dog parks are where community happens. Sniffr ATX makes those connections last.</p>
-    <div class="austin-stats">
-        <div class="stat">
-            <div class="stat-number">712K+</div>
-            <div class="stat-label">Pet-owning households in Austin</div>
+    <div class="section-inner">
+        <span class="section-eyebrow">Made for Austin</span>
+        <h2 class="section-title">Austin loves its dogs</h2>
+        <p class="section-sub" style="margin: 0 auto;">From Zilker to Auditorium Shores, Austin's parks are where community happens. Sniffr ATX makes those connections last.</p>
+
+        <div class="austin-stats">
+            <div class="stat">
+                <div class="stat-number">712K+</div>
+                <div class="stat-label">Pet-owning households in Austin metro</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">75%</div>
+                <div class="stat-label">Of Austin households have a pet</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Off-leash dog parks in the city</div>
+            </div>
         </div>
-        <div class="stat">
-            <div class="stat-number">75%</div>
-            <div class="stat-label">Of Austin households have a pet</div>
-        </div>
-        <div class="stat">
-            <div class="stat-number">30+</div>
-            <div class="stat-label">Off-leash dog parks in the city</div>
+
+        <div class="parks-list">
+            <span class="park-tag">📍 Zilker Off-Leash</span>
+            <span class="park-tag">📍 Red Bud Isle</span>
+            <span class="park-tag">📍 Auditorium Shores</span>
+            <span class="park-tag">📍 Mueller Dog Park</span>
+            <span class="park-tag">📍 Norwood Estate</span>
+            <span class="park-tag">📍 Walnut Creek</span>
+            <span class="park-tag">📍 Wooten Neighborhood</span>
+            <span class="park-tag">+ 8 more</span>
         </div>
     </div>
 </section>
 
+<!-- ── CTA ───────────────────────────────────────── -->
 <section class="cta" id="download">
-    <div class="cta-card">
-        <h2>Ready to join the pack?</h2>
-        <p>Sign up now and be the first to download when we launch.</p>
-        <form id="cta-signup" class="email-form cta-form" onsubmit="handleSignup(event, 'cta')">
-            <input type="email" placeholder="Enter your email" required class="email-input email-input-dark" />
-            <button type="submit" class="btn-white email-btn">Join the Waitlist</button>
-        </form>
-        <p class="signup-note" style="color: rgba(255,255,255,0.7); margin-top: 0.75rem;">Free forever. Launching soon on iOS.</p>
+    <div class="cta-inner">
+        <h2>Ready to join<br>the <span class="orange">pack?</span></h2>
+        <p>Sniffr ATX is free on the App Store. Download now and start connecting with Austin dog owners at the park.</p>
+
+        <div class="cta-buttons">
+            <a href="https://apps.apple.com/app/id6758127485" class="btn-appstore-lg" target="_blank" rel="noopener">
+                <svg width="24" height="28" viewBox="0 0 22 26" fill="none">
+                    <path d="M18.07 13.77c-.03-3.14 2.56-4.65 2.68-4.73-1.46-2.14-3.73-2.43-4.53-2.46-1.93-.2-3.77 1.14-4.75 1.14-.98 0-2.5-1.11-4.12-1.08C5.07 6.68 3.08 7.9 1.99 9.8-.27 13.66.87 19.33 3.06 22.44c1.08 1.56 2.37 3.3 4.06 3.24 1.63-.07 2.24-1.05 4.2-1.05 1.96 0 2.51 1.05 4.23 1.02 1.75-.03 2.86-1.58 3.93-3.15.24-.35.47-.71.66-1.08-3.3-1.27-5.07-4.65-5.07-7.65zM15.18 4.4C16.07 3.33 16.67 1.83 16.5.3c-1.32.06-2.93.88-3.87 1.93-.84.95-1.58 2.47-1.38 3.93 1.47.11 2.97-.75 3.93-1.76z" fill="white"/>
+                </svg>
+                <div class="btn-appstore-lg-inner">
+                    <span class="btn-appstore-lg-sub">Download on the</span>
+                    <span class="btn-appstore-lg-main">App Store</span>
+                </div>
+            </a>
+        </div>
+
+        <p class="cta-note">Free · iOS · No account required to browse</p>
     </div>
 </section>
 
+<!-- ── FOOTER ─────────────────────────────────────── -->
 <footer>
     <div class="footer-inner">
-        <div class="footer-brand">
-            <a href="/" class="logo">Sniffr <span>ATX</span></a>
-            <p>Dog park social network for Austin, TX.</p>
+        <div>
+            <a href="/" class="footer-logo">Sniffr <em>ATX</em></a>
+            <p class="footer-tagline">Dog park social network for Austin, TX.</p>
         </div>
-        <div class="footer-links-section">
+        <div class="footer-col">
             <h4>App</h4>
             <ul>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#how">How It Works</a></li>
-                <li><a href="#download">Download</a></li>
+                <li><a href="https://apps.apple.com/app/id6758127485" target="_blank" rel="noopener">Download on iOS</a></li>
             </ul>
         </div>
-        <div class="footer-links-section">
+        <div class="footer-col">
             <h4>Legal</h4>
             <ul>
                 <li><a href="privacy.html">Privacy Policy</a></li>
@@ -975,57 +1129,15 @@
         </div>
     </div>
     <div class="footer-bottom">
-        &copy; 2026 Sniffr ATX. All rights reserved.
+        &copy; 2026 Sniffr ATX. All rights reserved. · Made in Austin, TX 🤠
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
-    // Sticky header shadow on scroll
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', window.scrollY > 10);
-    });
-
-    // Supabase client
-    const { createClient } = supabase;
-    const sb = createClient(
-        'https://kuoiomsljinuxjumkkvy.supabase.co',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1b2lvbXNsamludXhqdW1ra3Z5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1MzAyNDYsImV4cCI6MjA4MjEwNjI0Nn0.2J-vdK2EA7pYvRyoSoeA4AJd1k0V9JU6dUDaVWNR_oY'
-    );
-
-    async function handleSignup(e, source) {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.querySelector('input[type="email"]').value.trim();
-        const btn = form.querySelector('button');
-        const originalText = btn.textContent;
-
-        btn.textContent = 'Joining...';
-        btn.disabled = true;
-
-        try {
-            const { error } = await sb.from('email_signups').insert({ email, source });
-
-            if (error && error.code === '23505') {
-                form.innerHTML = '<div class="signup-success">You\'re already on the list! We\'ll be in touch soon.</div>';
-            } else if (error) {
-                throw error;
-            } else {
-                form.innerHTML = '<div class="signup-success">You\'re in! We\'ll let you know when Sniffr ATX launches.</div>';
-            }
-        } catch (err) {
-            btn.textContent = originalText;
-            btn.disabled = false;
-            let msg = form.querySelector('.signup-error');
-            if (!msg) {
-                msg = document.createElement('p');
-                msg.className = 'signup-error';
-                form.appendChild(msg);
-            }
-            msg.textContent = 'Something went wrong. Please try again.';
-        }
-    }
+    }, { passive: true });
 </script>
 
 </body>
