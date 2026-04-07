@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sniffr ATX - Dog Park Social App for Austin</title>
     <meta name="description" content="Connect with dog owners at Austin's best dog parks. Scan QR codes, message friends, plan playdates. Free on the App Store.">
-    <meta name="theme-color" content="#F97316">
+    <meta name="theme-color" content="#E8621A">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Dakota-AI/sniffratx-site/main/favicon.png">
 
     <!-- Open Graph -->
@@ -14,515 +14,727 @@
     <meta property="og:title" content="Sniffr ATX - Dog Park Social App for Austin" />
     <meta property="og:description" content="Connect with dog owners at Austin's best parks. Scan QR codes, chat, plan playdates. Free on the App Store." />
     <meta property="og:image" content="https://sniffratx.app/og-image.png" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Sniffr ATX - Dog Park Social App" />
     <meta name="twitter:description" content="Meet dog owners at Austin parks. QR connect, chat, plan playdates." />
     <meta name="twitter:image" content="https://sniffratx.app/og-image.png" />
-
-    <!-- Apple Smart App Banner -->
     <meta name="apple-itunes-app" content="app-id=6758127485" />
-
-    <!-- Canonical -->
     <link rel="canonical" href="https://sniffratx.app/" />
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MobileApplication",
-      "name": "Sniffr ATX",
-      "description": "Dog park social app for Austin, TX dog owners. Connect via QR codes, chat, plan playdates.",
-      "operatingSystem": "iOS",
-      "applicationCategory": "SocialNetworkingApplication",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "url": "https://apps.apple.com/app/id6758127485",
-      "image": "https://sniffratx.app/og-image.png"
-    }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Sniffr ATX","operatingSystem":"iOS","applicationCategory":"SocialNetworkingApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://apps.apple.com/app/id6758127485"}</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --orange: #F97316;
-            --orange-light: #FB923C;
-            --orange-dim: rgba(249, 115, 22, 0.12);
-            --orange-glow: rgba(249, 115, 22, 0.25);
-            --teal: #0D9488;
-            --dark: #16120E;
-            --dark-2: #1F1A14;
-            --dark-3: #2A231A;
-            --cream: #FFFBF7;
-            --cream-2: #FFF4E8;
+            --parchment: #FAF5EE;
+            --parchment-2: #F0E8D8;
+            --parchment-3: #E8DCC8;
+            --orange: #E8621A;
+            --orange-2: #F97316;
+            --forest: #1A3A2A;
+            --forest-2: #2D5440;
+            --golden: #D4891A;
+            --bark: #3D2010;
+            --text: #1C1208;
+            --text-2: #6B4F35;
+            --text-3: #A08060;
             --white: #FFFFFF;
-            --text-on-dark: rgba(255,255,255,0.92);
-            --text-on-dark-muted: rgba(255,255,255,0.5);
-            --text-primary: #1C1510;
-            --text-secondary: #57534E;
-            --text-muted: #A8A29E;
-            --border-dark: rgba(255,255,255,0.08);
-            --border-light: rgba(28, 25, 23, 0.07);
+            --border: rgba(60, 35, 15, 0.1);
         }
 
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'DM Sans', -apple-system, sans-serif;
-            color: var(--text-primary);
-            background: var(--dark);
+            background: var(--parchment);
+            color: var(--text);
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        /* ── NAV ─────────────────────────────────── */
+        /* ── NAV ─────────────────────────── */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(22, 18, 14, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-dark);
-            transition: box-shadow 0.3s;
+            background: rgba(250, 245, 238, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
         }
 
-        header.scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.4); }
-
         nav {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--white);
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text);
             text-decoration: none;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.01em;
         }
 
         .logo em {
             color: var(--orange);
-            font-style: normal;
+            font-style: italic;
         }
 
-        .nav-links {
+        .nav-right {
             display: flex;
+            align-items: center;
             gap: 2rem;
             list-style: none;
-            align-items: center;
         }
 
-        .nav-links a {
-            color: var(--text-on-dark-muted);
+        .nav-right a {
+            color: var(--text-2);
             text-decoration: none;
+            font-size: 0.88rem;
             font-weight: 500;
-            font-size: 0.9rem;
             transition: color 0.2s;
         }
 
-        .nav-links a:hover { color: var(--white); }
+        .nav-right a:hover { color: var(--text); }
 
-        .nav-cta {
-            background: var(--orange) !important;
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--forest);
             color: var(--white) !important;
-            padding: 0.5rem 1.25rem;
+            padding: 0.55rem 1.2rem;
             border-radius: 100px;
             font-weight: 600 !important;
-            transition: opacity 0.2s, transform 0.2s !important;
-            font-size: 0.88rem !important;
+            font-size: 0.85rem !important;
+            transition: background 0.2s, transform 0.2s !important;
         }
 
-        .nav-cta:hover {
-            opacity: 0.88 !important;
-            transform: translateY(-1px) !important;
+        .nav-btn:hover {
+            background: var(--forest-2) !important;
+            transform: translateY(-1px);
         }
 
-        /* ── HERO ────────────────────────────────── */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 7rem 2rem 6rem;
-            position: relative;
+        /* ── MARQUEE ─────────────────────── */
+        .marquee-bar {
+            background: var(--forest);
+            padding: 0.75rem 0;
             overflow: hidden;
-            background: var(--dark);
+            margin-top: 57px;
         }
 
-        /* Noise texture overlay */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            opacity: 0.4;
-            pointer-events: none;
+        .marquee-track {
+            display: flex;
+            gap: 0;
+            animation: marquee 28s linear infinite;
+            width: max-content;
         }
 
-        /* Orange radial glow */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 900px;
-            height: 600px;
-            background: radial-gradient(ellipse, rgba(249,115,22,0.18) 0%, transparent 70%);
-            pointer-events: none;
+        .marquee-track:hover { animation-play-state: paused; }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 0 2rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            white-space: nowrap;
         }
 
-        .hero-content { position: relative; z-index: 1; max-width: 780px; }
+        .marquee-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--orange-2);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
 
-        .hero-badge {
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ── HERO ────────────────────────── */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: calc(90vh - 57px);
+        }
+
+        .hero-left {}
+
+        .hero-tag {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(249,115,22,0.12);
-            border: 1px solid rgba(249,115,22,0.3);
-            padding: 0.45rem 1.1rem;
+            background: var(--parchment-2);
+            border: 1px solid var(--parchment-3);
+            padding: 0.4rem 1rem;
             border-radius: 100px;
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 600;
-            color: var(--orange-light);
-            letter-spacing: 0.01em;
-            margin-bottom: 2rem;
-            animation: fadeUp 0.7s ease both;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1.75rem;
+            animation: fadeUp 0.6s ease both;
         }
 
-        .badge-dot {
+        .live-dot {
             width: 7px; height: 7px;
             background: var(--orange);
             border-radius: 50%;
-            animation: pulse 2s ease infinite;
+            animation: livePulse 2s ease infinite;
         }
 
-        @keyframes pulse {
+        @keyframes livePulse {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(0.85); }
+            50% { opacity: 0.5; transform: scale(0.7); }
         }
 
         .hero h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: clamp(3rem, 7vw, 5rem);
-            font-weight: 800;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(3rem, 5vw, 4.5rem);
             line-height: 1.05;
-            letter-spacing: -0.04em;
-            color: var(--white);
+            letter-spacing: -0.02em;
+            color: var(--text);
             margin-bottom: 1.5rem;
-            animation: fadeUp 0.7s ease 0.1s both;
+            animation: fadeUp 0.6s ease 0.1s both;
         }
 
-        .hero h1 .orange { color: var(--orange); }
+        .hero h1 .accent {
+            color: var(--orange);
+        }
 
         .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: var(--text-on-dark-muted);
-            max-width: 500px;
-            margin: 0 auto 2.5rem;
+            font-size: 1.1rem;
+            color: var(--text-2);
             line-height: 1.75;
-            font-weight: 400;
-            animation: fadeUp 0.7s ease 0.2s both;
+            max-width: 420px;
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.6s ease 0.2s both;
         }
 
-        .hero-buttons {
+        .hero-cta {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
-            animation: fadeUp 0.7s ease 0.3s both;
+            animation: fadeUp 0.6s ease 0.3s both;
+            margin-bottom: 2.5rem;
         }
 
-        /* App Store Button */
-        .btn-appstore {
+        .btn-download {
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            background: var(--white);
-            color: var(--dark);
-            padding: 0.85rem 1.75rem;
+            background: var(--text);
+            color: var(--white);
+            padding: 0.9rem 1.75rem;
             border-radius: 14px;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 0.95rem;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
-            font-family: 'Sora', sans-serif;
-            letter-spacing: -0.01em;
+            box-shadow: 0 4px 20px rgba(28, 18, 8, 0.2);
         }
 
-        .btn-appstore:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(28, 18, 8, 0.25);
         }
 
-        .btn-appstore svg { flex-shrink: 0; }
+        .btn-dl-inner { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
+        .btn-dl-sub { font-size: 0.65rem; font-weight: 500; opacity: 0.6; }
+        .btn-dl-main { font-size: 0.95rem; font-weight: 700; }
 
-        .btn-appstore-inner { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
-        .btn-appstore-sub { font-size: 0.68rem; font-weight: 500; opacity: 0.6; font-family: 'DM Sans', sans-serif; }
-        .btn-appstore-main { font-size: 1rem; font-weight: 700; }
-
-        .btn-ghost {
+        .btn-outline {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             background: transparent;
-            color: var(--text-on-dark-muted);
-            padding: 0.85rem 1.75rem;
+            color: var(--text-2);
+            padding: 0.9rem 1.5rem;
             border-radius: 14px;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             text-decoration: none;
-            border: 1px solid var(--border-dark);
+            border: 1.5px solid var(--border);
             transition: all 0.2s;
         }
 
-        .btn-ghost:hover {
-            color: var(--white);
-            border-color: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
+        .btn-outline:hover {
+            border-color: var(--text);
+            color: var(--text);
         }
 
-        /* Hero social proof */
         .hero-proof {
-            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            animation: fadeUp 0.6s ease 0.4s both;
+        }
+
+        .proof-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.82rem;
+            color: var(--text-3);
+            font-weight: 500;
+        }
+
+        .proof-sep { color: var(--parchment-3); font-size: 1.2rem; }
+
+        /* ── HERO PHOTOS ─────────────────── */
+        .hero-right {
+            position: relative;
+            height: 520px;
+            animation: fadeUp 0.8s ease 0.3s both;
+        }
+
+        .photo-stack {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .photo-card {
+            position: absolute;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(28, 18, 8, 0.15);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-card-1 {
+            width: 58%;
+            height: 72%;
+            top: 0;
+            left: 0;
+            transform: rotate(-2.5deg);
+            z-index: 2;
+        }
+
+        .photo-card-2 {
+            width: 52%;
+            height: 58%;
+            bottom: 0;
+            right: 0;
+            transform: rotate(2deg);
+            z-index: 3;
+            box-shadow: 0 20px 60px rgba(28, 18, 8, 0.2);
+        }
+
+        .photo-card-3 {
+            width: 38%;
+            height: 40%;
+            top: 30%;
+            right: 2%;
+            transform: rotate(-1.5deg);
+            z-index: 1;
+            box-shadow: 0 8px 24px rgba(28, 18, 8, 0.12);
+        }
+
+        /* Floating tag on photo */
+        .photo-tag {
+            position: absolute;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 0.65rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 8px 24px rgba(28, 18, 8, 0.15);
+            z-index: 10;
+            animation: floatTag 4s ease-in-out infinite;
+        }
+
+        .photo-tag-1 {
+            bottom: 22%;
+            left: -5%;
+            animation-delay: 0s;
+        }
+
+        .photo-tag-2 {
+            top: 8%;
+            right: -2%;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatTag {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .tag-icon {
+            width: 32px; height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            animation: fadeUp 0.7s ease 0.4s both;
+            font-size: 0.95rem;
+            flex-shrink: 0;
         }
 
-        .proof-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-on-dark-muted);
-            font-size: 0.85rem;
-        }
+        .tag-icon-orange { background: #FEE4D0; }
+        .tag-icon-green { background: #D0F0E0; }
 
-        .proof-icon { font-size: 1rem; }
+        .tag-text { font-size: 0.75rem; font-weight: 700; color: var(--text); white-space: nowrap; }
+        .tag-sub { font-size: 0.65rem; color: var(--text-3); white-space: nowrap; }
 
-        .proof-divider {
-            width: 4px; height: 4px;
-            background: var(--border-dark);
-            border-radius: 50%;
-        }
-
-        /* ── HOW IT WORKS ────────────────────────── */
+        /* ── HOW IT WORKS ────────────────── */
         .how {
-            background: var(--cream);
-            padding: 6rem 2rem;
+            background: var(--forest);
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .section-inner {
-            max-width: 1100px;
+        .how::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(232,98,26,0.08) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .how-inner {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-eyebrow {
-            display: inline-block;
-            font-size: 0.75rem;
+        .how-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .how-header .eyebrow {
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--teal);
-            margin-bottom: 0.75rem;
+            letter-spacing: 0.12em;
+            color: var(--orange-2);
+            margin-bottom: 0.6rem;
+            display: block;
         }
 
-        .section-title {
-            font-family: 'Sora', sans-serif;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
-            line-height: 1.15;
-            margin-bottom: 1rem;
+        .how-title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--white);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        .section-sub {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            max-width: 480px;
-            line-height: 1.75;
-            margin-bottom: 3.5rem;
-        }
-
-        .steps {
+        .how-steps {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            background: var(--border-light);
+            gap: 1px;
+            background: rgba(255,255,255,0.06);
             border-radius: 20px;
             overflow: hidden;
         }
 
-        .step {
-            background: var(--cream);
+        .how-step {
+            background: rgba(255,255,255,0.03);
             padding: 2.5rem 2rem;
-            position: relative;
+            transition: background 0.2s;
         }
 
-        .step:hover { background: var(--white); }
+        .how-step:hover { background: rgba(255,255,255,0.06); }
 
-        .step-num {
-            font-family: 'Sora', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: rgba(249,115,22,0.12);
+        .step-n {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 5rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.06);
             line-height: 1;
             margin-bottom: 1.5rem;
             letter-spacing: -0.04em;
         }
 
-        .step-icon {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            display: block;
+        .step-icon-wrap {
+            width: 44px; height: 44px;
+            background: rgba(232,98,26,0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.25rem;
         }
 
-        .step h3 {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
+        .how-step h3 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--white);
             margin-bottom: 0.6rem;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
         }
 
-        .step p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
+        .how-step p {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.75;
         }
 
-        /* ── FEATURES ────────────────────────────── */
+        /* ── FEATURES ────────────────────── */
         .features {
-            background: var(--dark-2);
             padding: 6rem 2rem;
+            background: var(--parchment);
         }
 
-        .features .section-eyebrow { color: var(--orange-light); }
+        .features-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-        .features .section-title { color: var(--white); }
+        .features-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
 
-        .features .section-sub { color: var(--text-on-dark-muted); }
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--orange);
+            margin-bottom: 0.75rem;
+        }
 
-        .features-grid {
+        .section-title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.02em;
+            color: var(--text);
+            line-height: 1.1;
+        }
+
+        .features-bento {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5px;
-            background: var(--border-dark);
+            grid-template-columns: 1.4fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 1.25rem;
+        }
+
+        .feat-card {
+            background: var(--white);
             border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative;
             overflow: hidden;
         }
 
-        .feature-card {
-            background: var(--dark-2);
-            padding: 2.5rem 2rem;
-            transition: background 0.2s;
+        .feat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(28, 18, 8, 0.08);
         }
 
-        .feature-card:hover { background: var(--dark-3); }
+        .feat-card.featured {
+            background: var(--forest);
+            border-color: transparent;
+            grid-row: span 2;
+            display: flex;
+            flex-direction: column;
+        }
 
-        .feature-emoji {
+        .feat-card.featured::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(232,98,26,0.15) 0%, transparent 65%);
+        }
+
+        .feat-emoji {
             font-size: 2rem;
             margin-bottom: 1.25rem;
             display: block;
         }
 
-        .feature-card h3 {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
+        .feat-card h3 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text);
             margin-bottom: 0.6rem;
-            color: var(--white);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
         }
 
-        .feature-card p {
+        .feat-card.featured h3 { color: var(--white); }
+
+        .feat-card p {
             font-size: 0.88rem;
-            color: var(--text-on-dark-muted);
-            line-height: 1.7;
+            color: var(--text-2);
+            line-height: 1.75;
         }
 
-        /* ── AUSTIN ──────────────────────────────── */
+        .feat-card.featured p { color: rgba(255,255,255,0.55); }
+
+        .feat-big-number {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 5rem;
+            color: rgba(255,255,255,0.07);
+            line-height: 1;
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .feat-card.featured .feat-bottom {
+            margin-top: auto;
+            padding-top: 2rem;
+        }
+
+        .feat-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(232,98,26,0.15);
+            color: var(--orange-2);
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ── AUSTIN ──────────────────────── */
         .austin {
-            background: var(--cream);
+            background: var(--parchment-2);
             padding: 6rem 2rem;
         }
 
-        .austin .section-inner { text-align: center; }
+        .austin-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .austin-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .austin-text .eyebrow { margin-bottom: 0.75rem; }
+
+        .austin-title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .austin-sub {
+            font-size: 1rem;
+            color: var(--text-2);
+            line-height: 1.75;
+        }
 
         .austin-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            background: var(--border-light);
-            border-radius: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border-radius: 16px;
             overflow: hidden;
-            margin-top: 3.5rem;
         }
 
-        .stat {
-            background: var(--cream);
-            padding: 2.5rem 2rem;
+        .stat-cell {
+            background: var(--white);
+            padding: 1.75rem;
         }
 
-        .stat-number {
-            font-family: 'Sora', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 800;
+        .stat-n {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 2.5rem;
             color: var(--orange);
-            letter-spacing: -0.04em;
+            letter-spacing: -0.03em;
             line-height: 1;
+            margin-bottom: 0.4rem;
         }
 
-        .stat-label {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
+        .stat-l {
+            font-size: 0.82rem;
+            color: var(--text-2);
             line-height: 1.5;
         }
 
-        /* Parks tags */
-        .parks-list {
+        /* Parks pill cloud */
+        .parks-cloud {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             gap: 0.6rem;
-            margin-top: 3rem;
         }
 
-        .park-tag {
+        .park-pill {
             background: var(--white);
-            border: 1px solid var(--border-light);
-            padding: 0.4rem 1rem;
+            border: 1px solid var(--border);
+            padding: 0.45rem 1rem;
             border-radius: 100px;
             font-size: 0.82rem;
-            color: var(--text-secondary);
+            color: var(--text-2);
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
         }
 
-        /* ── CTA ─────────────────────────────────── */
+        .park-pill:hover {
+            background: var(--forest);
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        /* ── CTA ─────────────────────────── */
         .cta {
-            background: var(--dark);
+            background: var(--orange);
             padding: 6rem 2rem;
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -530,124 +742,126 @@
         .cta::before {
             content: '';
             position: absolute;
-            bottom: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(249,115,22,0.14) 0%, transparent 65%);
+            top: -50%;
+            left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -50px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0,0,0,0.06) 0%, transparent 65%);
             pointer-events: none;
         }
 
         .cta-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
             position: relative;
             z-index: 1;
-            max-width: 600px;
-            margin: 0 auto;
+        }
+
+        .cta-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 1.25rem;
+            display: block;
         }
 
         .cta h2 {
-            font-family: 'Sora', sans-serif;
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             color: var(--white);
-            line-height: 1.1;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
             margin-bottom: 1.25rem;
         }
 
-        .cta h2 .orange { color: var(--orange); }
-
         .cta p {
             font-size: 1.05rem;
-            color: var(--text-on-dark-muted);
-            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.75);
             line-height: 1.7;
+            margin-bottom: 2.5rem;
         }
 
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-appstore-lg {
+        .btn-dl-white {
             display: inline-flex;
             align-items: center;
-            gap: 0.85rem;
-            background: var(--orange);
-            color: var(--white);
+            gap: 0.75rem;
+            background: var(--white);
+            color: var(--text);
             padding: 1rem 2rem;
             border-radius: 16px;
             font-weight: 700;
             font-size: 1rem;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 8px 32px rgba(249,115,22,0.35);
-            font-family: 'Sora', sans-serif;
-            letter-spacing: -0.01em;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
         }
 
-        .btn-appstore-lg:hover {
+        .btn-dl-white:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(249,115,22,0.45);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
         }
-
-        .btn-appstore-lg-inner { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
-        .btn-appstore-lg-sub { font-size: 0.7rem; font-weight: 500; opacity: 0.75; font-family: 'DM Sans', sans-serif; }
-        .btn-appstore-lg-main { font-size: 1.05rem; font-weight: 700; }
 
         .cta-note {
             margin-top: 1.5rem;
             font-size: 0.82rem;
-            color: var(--text-on-dark-muted);
+            color: rgba(255,255,255,0.55);
         }
 
-        /* ── FOOTER ──────────────────────────────── */
+        /* ── FOOTER ──────────────────────── */
         footer {
-            background: var(--dark-2);
-            border-top: 1px solid var(--border-dark);
-            padding: 3rem 2rem 2rem;
+            background: var(--bark);
+            padding: 3.5rem 2rem 2rem;
         }
 
         .footer-inner {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .footer-logo {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 800;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: 1.4rem;
             color: var(--white);
             text-decoration: none;
-            letter-spacing: -0.03em;
             display: block;
             margin-bottom: 0.5rem;
         }
 
-        .footer-logo em { color: var(--orange); font-style: normal; }
-        .footer-tagline { font-size: 0.82rem; color: var(--text-on-dark-muted); }
+        .footer-logo em { color: var(--orange-2); font-style: italic; }
+        .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
 
         .footer-col h4 {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-on-dark-muted);
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.35);
             margin-bottom: 1rem;
         }
 
         .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
 
         .footer-col a {
-            color: var(--text-on-dark-muted);
+            color: rgba(255,255,255,0.55);
             text-decoration: none;
             font-size: 0.88rem;
             transition: color 0.2s;
@@ -656,221 +870,295 @@
         .footer-col a:hover { color: var(--white); }
 
         .footer-bottom {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 2rem auto 0;
             padding-top: 1.5rem;
-            border-top: 1px solid var(--border-dark);
+            border-top: 1px solid rgba(255,255,255,0.06);
             text-align: center;
             font-size: 0.78rem;
-            color: var(--text-on-dark-muted);
+            color: rgba(255,255,255,0.25);
         }
 
-        /* ── ANIMATIONS ──────────────────────────── */
+        /* ── ANIMATIONS ──────────────────── */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(24px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── RESPONSIVE ──────────────────────────── */
+        /* ── RESPONSIVE ──────────────────── */
         @media (max-width: 900px) {
-            .float-card { display: none; }
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding: 3rem 1.5rem 2rem;
+                gap: 2.5rem;
+            }
+
+            .hero-right { height: 360px; }
+            .photo-card-3 { display: none; }
+
+            .how-steps { grid-template-columns: 1fr; }
+            .features-bento { grid-template-columns: 1fr; }
+            .feat-card.featured { grid-row: span 1; }
+            .austin-top { grid-template-columns: 1fr; gap: 2rem; }
+            .austin-stats { grid-template-columns: 1fr 1fr; }
+
+            .footer-inner { flex-direction: column; }
+            .nav-right { display: none; }
         }
 
-        @media (max-width: 768px) {
-            .hero { padding: 7rem 1.5rem 4rem; }
+        @media (max-width: 600px) {
             .hero h1 { font-size: 2.6rem; }
-
-            .steps { grid-template-columns: 1fr; }
-            .features-grid { grid-template-columns: 1fr; }
-            .austin-stats { grid-template-columns: 1fr; }
-
-            .nav-links { gap: 1rem; }
-
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn-appstore, .btn-ghost { width: 100%; max-width: 280px; justify-content: center; }
-
-            .hero-proof { flex-direction: column; gap: 0.75rem; }
-            .proof-divider { display: none; }
-
-            .footer-inner { flex-direction: column; text-align: center; align-items: center; }
+            .hero-right { height: 280px; }
+            .photo-card-2 { display: none; }
+            .photo-card-1 { width: 80%; height: 80%; left: 10%; top: 10%; transform: rotate(-1deg); }
+            .photo-tag-1 { display: none; }
         }
     </style>
 </head>
 <body>
 
-<!-- ── NAV ──────────────────────────────────────── -->
+<!-- ── NAV ────────────────────────────── -->
 <header id="header">
     <nav>
         <a href="/" class="logo">Sniffr <em>ATX</em></a>
-        <ul class="nav-links">
+        <ul class="nav-right">
             <li><a href="#features">Features</a></li>
             <li><a href="support.html">Support</a></li>
             <li><a href="privacy.html">Privacy</a></li>
-            <li>
-                <a href="https://apps.apple.com/app/id6758127485" class="nav-cta" target="_blank" rel="noopener">
-                    Download Free
-                </a>
-            </li>
+            <li><a href="https://apps.apple.com/app/id6758127485" class="nav-btn" target="_blank" rel="noopener">
+                Download Free
+            </a></li>
         </ul>
     </nav>
 </header>
 
-<!-- ── HERO ─────────────────────────────────────── -->
+<!-- ── MARQUEE ────────────────────────── -->
+<div class="marquee-bar">
+    <div class="marquee-track">
+        <!-- doubled for infinite loop -->
+        <div class="marquee-item">Zilker Off-Leash<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Red Bud Isle<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Auditorium Shores<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Mueller Dog Park<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Norwood Estate<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Walnut Creek<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Wooten Neighborhood<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Dick Nichols<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Onion Creek<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Bartholomew<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Zilker Off-Leash<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Red Bud Isle<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Auditorium Shores<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Mueller Dog Park<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Norwood Estate<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Walnut Creek<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Wooten Neighborhood<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Dick Nichols<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Onion Creek<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Bartholomew<span class="marquee-dot"></span></div>
+    </div>
+</div>
+
+<!-- ── HERO ───────────────────────────── -->
 <section class="hero">
-    <div class="hero-content">
-        <div class="hero-badge">
-            <span class="badge-dot"></span>
-            Now on the App Store — Free
+    <div class="hero-left">
+        <div class="hero-tag">
+            <span class="live-dot"></span>
+            Live on the App Store
         </div>
 
-        <h1>Your dog's<br><span class="orange">social life</span><br>starts here</h1>
+        <h1>Meet the dogs<br>in your <span class="accent">neighborhood.</span></h1>
 
-        <p>Meet dog owners at Austin's best parks. Scan a QR code, skip the awkward number exchange, and build your pup's pack.</p>
+        <p>Austin's dog park community, finally connected. Scan a QR code, skip the awkward number exchange, and build your pup's pack at Zilker, Red Bud Isle, and beyond.</p>
 
-        <div class="hero-buttons">
-            <a href="https://apps.apple.com/app/id6758127485" class="btn-appstore" target="_blank" rel="noopener">
-                <svg width="22" height="26" viewBox="0 0 22 26" fill="none">
-                    <path d="M18.07 13.77c-.03-3.14 2.56-4.65 2.68-4.73-1.46-2.14-3.73-2.43-4.53-2.46-1.93-.2-3.77 1.14-4.75 1.14-.98 0-2.5-1.11-4.12-1.08C5.07 6.68 3.08 7.9 1.99 9.8-.27 13.66.87 19.33 3.06 22.44c1.08 1.56 2.37 3.3 4.06 3.24 1.63-.07 2.24-1.05 4.2-1.05 1.96 0 2.51 1.05 4.23 1.02 1.75-.03 2.86-1.58 3.93-3.15.24-.35.47-.71.66-1.08-3.3-1.27-5.07-4.65-5.07-7.65zM15.18 4.4C16.07 3.33 16.67 1.83 16.5.3c-1.32.06-2.93.88-3.87 1.93-.84.95-1.58 2.47-1.38 3.93 1.47.11 2.97-.75 3.93-1.76z" fill="#1C1510"/>
+        <div class="hero-cta">
+            <a href="https://apps.apple.com/app/id6758127485" class="btn-download" target="_blank" rel="noopener">
+                <svg width="20" height="24" viewBox="0 0 22 26" fill="none">
+                    <path d="M18.07 13.77c-.03-3.14 2.56-4.65 2.68-4.73-1.46-2.14-3.73-2.43-4.53-2.46-1.93-.2-3.77 1.14-4.75 1.14-.98 0-2.5-1.11-4.12-1.08C5.07 6.68 3.08 7.9 1.99 9.8-.27 13.66.87 19.33 3.06 22.44c1.08 1.56 2.37 3.3 4.06 3.24 1.63-.07 2.24-1.05 4.2-1.05 1.96 0 2.51 1.05 4.23 1.02 1.75-.03 2.86-1.58 3.93-3.15.24-.35.47-.71.66-1.08-3.3-1.27-5.07-4.65-5.07-7.65zM15.18 4.4C16.07 3.33 16.67 1.83 16.5.3c-1.32.06-2.93.88-3.87 1.93-.84.95-1.58 2.47-1.38 3.93 1.47.11 2.97-.75 3.93-1.76z" fill="white"/>
                 </svg>
-                <div class="btn-appstore-inner">
-                    <span class="btn-appstore-sub">Download on the</span>
-                    <span class="btn-appstore-main">App Store</span>
+                <div class="btn-dl-inner">
+                    <span class="btn-dl-sub">Download on the</span>
+                    <span class="btn-dl-main">App Store</span>
                 </div>
             </a>
-            <a href="#how" class="btn-ghost">See how it works ↓</a>
+            <a href="#how" class="btn-outline">How it works ↓</a>
         </div>
 
         <div class="hero-proof">
-            <div class="proof-item"><span class="proof-icon">🐾</span> Free forever</div>
-            <div class="proof-divider"></div>
-            <div class="proof-item"><span class="proof-icon">📍</span> Built for Austin</div>
-            <div class="proof-divider"></div>
-            <div class="proof-item"><span class="proof-icon">🔒</span> Private by design</div>
+            <div class="proof-pill">🐾 Free forever</div>
+            <span class="proof-sep">·</span>
+            <div class="proof-pill">📍 Built for Austin</div>
+            <span class="proof-sep">·</span>
+            <div class="proof-pill">🔒 Private</div>
         </div>
     </div>
 
+    <div class="hero-right">
+        <div class="photo-stack">
+            <div class="photo-card photo-card-1">
+                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80&fit=crop" alt="Dogs playing at park" loading="lazy">
+            </div>
+            <div class="photo-card photo-card-2">
+                <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&q=80&fit=crop" alt="Golden retriever" loading="lazy">
+            </div>
+            <div class="photo-card photo-card-3">
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80&fit=crop" alt="Australian Shepherd" loading="lazy">
+            </div>
+
+            <div class="photo-tag photo-tag-1">
+                <div class="tag-icon tag-icon-orange">🐶</div>
+                <div>
+                    <div class="tag-text">New connection!</div>
+                    <div class="tag-sub">Luna wants to be friends</div>
+                </div>
+            </div>
+
+            <div class="photo-tag photo-tag-2">
+                <div class="tag-icon tag-icon-green">📅</div>
+                <div>
+                    <div class="tag-text">Playdate set</div>
+                    <div class="tag-sub">Zilker · Tomorrow 10am</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- ── HOW IT WORKS ──────────────────────────────── -->
+<!-- ── HOW IT WORKS ───────────────────── -->
 <section class="how" id="how">
-    <div class="section-inner">
-        <span class="section-eyebrow">How It Works</span>
-        <h2 class="section-title">Three steps to<br>growing your pack</h2>
-        <p class="section-sub">No usernames to remember. No phone numbers to share. Just scan and connect.</p>
+    <div class="how-inner">
+        <div class="how-header">
+            <div>
+                <span class="eyebrow">How it works</span>
+                <h2 class="how-title">Three taps to a new<br>dog park friend.</h2>
+            </div>
+        </div>
 
-        <div class="steps">
-            <div class="step">
-                <div class="step-num">01</div>
-                <span class="step-icon">📱</span>
-                <h3>Show Your Code</h3>
-                <p>Open Sniffr ATX and pull up your unique QR code. It's always just one tap away.</p>
+        <div class="how-steps">
+            <div class="how-step">
+                <div class="step-n">01</div>
+                <div class="step-icon-wrap">📱</div>
+                <h3>Pull up your code</h3>
+                <p>Open Sniffr ATX and show your unique QR code. It's always one tap from the home screen.</p>
             </div>
-            <div class="step">
-                <div class="step-num">02</div>
-                <span class="step-icon">📷</span>
-                <h3>Scan & Connect</h3>
-                <p>The other owner scans it. Instant connection — no awkward number exchange needed.</p>
+            <div class="how-step">
+                <div class="step-n">02</div>
+                <div class="step-icon-wrap">📷</div>
+                <h3>Scan & connect</h3>
+                <p>The other owner scans it instantly. No usernames, no phone numbers. Just connected.</p>
             </div>
-            <div class="step">
-                <div class="step-num">03</div>
-                <span class="step-icon">🗓️</span>
-                <h3>Plan Playdates</h3>
-                <p>Message your new friend, schedule meetups, and keep your pup's social life going.</p>
+            <div class="how-step">
+                <div class="step-n">03</div>
+                <div class="step-icon-wrap">🗓️</div>
+                <h3>Keep the friendship going</h3>
+                <p>Message, plan playdates, and build your whole dog park community in one place.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── FEATURES ──────────────────────────────────── -->
+<!-- ── FEATURES ───────────────────────── -->
 <section class="features" id="features">
-    <div class="section-inner">
-        <span class="section-eyebrow">Features</span>
-        <h2 class="section-title">Everything your<br>pack needs</h2>
-        <p class="section-sub">Built for Austin dog owners who want to stay connected beyond the park gate.</p>
+    <div class="features-inner">
+        <div class="features-header">
+            <span class="eyebrow">Features</span>
+            <h2 class="section-title">Everything your pack needs.</h2>
+        </div>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-emoji">📲</span>
+        <div class="features-bento">
+            <div class="feat-card featured">
+                <span class="feat-emoji">📲</span>
                 <h3>QR Code Connections</h3>
-                <p>Ditch the phone number exchange. One scan at the park and you're connected. Fast, private, zero friction.</p>
+                <p>The fastest way to connect at the park. No searching, no usernames — just point, scan, and you're in each other's pack. Works in seconds.</p>
+                <div class="feat-big-number">QR</div>
+                <div class="feat-bottom">
+                    <span class="feat-tag">⚡ Instant connect</span>
+                </div>
             </div>
-            <div class="feature-card">
-                <span class="feature-emoji">💬</span>
+            <div class="feat-card">
+                <span class="feat-emoji">💬</span>
                 <h3>Direct Messaging</h3>
-                <p>Chat with your dog's friends' owners. Coordinate meetups, share park tips, or just swap cute puppy stories.</p>
+                <p>Chat with your connections, coordinate meetups, and share the best dog park intel.</p>
             </div>
-            <div class="feature-card">
-                <span class="feature-emoji">📅</span>
+            <div class="feat-card">
+                <span class="feat-emoji">📅</span>
                 <h3>Calendar & Reminders</h3>
-                <p>Track playdates, vet appointments, and vaccinations. Syncs with your phone's native calendar.</p>
+                <p>Track playdates, vet visits, and vaccinations. Syncs right to your iPhone calendar.</p>
             </div>
-            <div class="feature-card">
-                <span class="feature-emoji">🗺️</span>
-                <h3>Austin Dog Parks Map</h3>
-                <p>15+ Austin parks mapped with directions. From Zilker to Red Bud Isle — find your nearest off-leash spot.</p>
+            <div class="feat-card">
+                <span class="feat-emoji">🗺️</span>
+                <h3>Austin Dog Park Map</h3>
+                <p>All 15+ Austin off-leash parks with directions. Zilker, Red Bud Isle, Mueller, and more — always at your fingertips.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── AUSTIN ─────────────────────────────────────── -->
+<!-- ── AUSTIN ─────────────────────────── -->
 <section class="austin" id="austin">
-    <div class="section-inner">
-        <span class="section-eyebrow">Made for Austin</span>
-        <h2 class="section-title">Austin loves its dogs</h2>
-        <p class="section-sub" style="margin: 0 auto;">From Zilker to Auditorium Shores, Austin's parks are where community happens. Sniffr ATX makes those connections last.</p>
-
-        <div class="austin-stats">
-            <div class="stat">
-                <div class="stat-number">712K+</div>
-                <div class="stat-label">Pet-owning households in Austin metro</div>
+    <div class="austin-inner">
+        <div class="austin-top">
+            <div class="austin-text">
+                <span class="eyebrow">Made for Austin</span>
+                <h2 class="austin-title">Austin loves<br>its dogs.</h2>
+                <p class="austin-sub">From Zilker to Auditorium Shores, Austin's parks are where community happens. Sniffr ATX was built specifically for this city and its dog-obsessed culture.</p>
             </div>
-            <div class="stat">
-                <div class="stat-number">75%</div>
-                <div class="stat-label">Of Austin households have a pet</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">30+</div>
-                <div class="stat-label">Off-leash dog parks in the city</div>
+            <div class="austin-stats">
+                <div class="stat-cell">
+                    <div class="stat-n">712K+</div>
+                    <div class="stat-l">Pet-owning households in Austin metro</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-n">75%</div>
+                    <div class="stat-l">Of Austin households have a pet</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-n">30+</div>
+                    <div class="stat-l">Off-leash dog parks in the city</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-n">Free</div>
+                    <div class="stat-l">Always free, no ads, no data selling</div>
+                </div>
             </div>
         </div>
 
-        <div class="parks-list">
-            <span class="park-tag">📍 Zilker Off-Leash</span>
-            <span class="park-tag">📍 Red Bud Isle</span>
-            <span class="park-tag">📍 Auditorium Shores</span>
-            <span class="park-tag">📍 Mueller Dog Park</span>
-            <span class="park-tag">📍 Norwood Estate</span>
-            <span class="park-tag">📍 Walnut Creek</span>
-            <span class="park-tag">📍 Wooten Neighborhood</span>
-            <span class="park-tag">+ 8 more</span>
+        <div class="parks-cloud">
+            <div class="park-pill">📍 Zilker Off-Leash</div>
+            <div class="park-pill">📍 Red Bud Isle</div>
+            <div class="park-pill">📍 Auditorium Shores</div>
+            <div class="park-pill">📍 Mueller Dog Park</div>
+            <div class="park-pill">📍 Norwood Estate</div>
+            <div class="park-pill">📍 Walnut Creek</div>
+            <div class="park-pill">📍 Dick Nichols</div>
+            <div class="park-pill">📍 Onion Creek</div>
+            <div class="park-pill">📍 Bartholomew</div>
+            <div class="park-pill">+ 6 more</div>
         </div>
     </div>
 </section>
 
-<!-- ── CTA ───────────────────────────────────────── -->
+<!-- ── CTA ────────────────────────────── -->
 <section class="cta" id="download">
     <div class="cta-inner">
-        <h2>Ready to join<br>the <span class="orange">pack?</span></h2>
-        <p>Sniffr ATX is free on the App Store. Download now and start connecting with Austin dog owners at the park.</p>
-
-        <div class="cta-buttons">
-            <a href="https://apps.apple.com/app/id6758127485" class="btn-appstore-lg" target="_blank" rel="noopener">
-                <svg width="24" height="28" viewBox="0 0 22 26" fill="none">
-                    <path d="M18.07 13.77c-.03-3.14 2.56-4.65 2.68-4.73-1.46-2.14-3.73-2.43-4.53-2.46-1.93-.2-3.77 1.14-4.75 1.14-.98 0-2.5-1.11-4.12-1.08C5.07 6.68 3.08 7.9 1.99 9.8-.27 13.66.87 19.33 3.06 22.44c1.08 1.56 2.37 3.3 4.06 3.24 1.63-.07 2.24-1.05 4.2-1.05 1.96 0 2.51 1.05 4.23 1.02 1.75-.03 2.86-1.58 3.93-3.15.24-.35.47-.71.66-1.08-3.3-1.27-5.07-4.65-5.07-7.65zM15.18 4.4C16.07 3.33 16.67 1.83 16.5.3c-1.32.06-2.93.88-3.87 1.93-.84.95-1.58 2.47-1.38 3.93 1.47.11 2.97-.75 3.93-1.76z" fill="white"/>
-                </svg>
-                <div class="btn-appstore-lg-inner">
-                    <span class="btn-appstore-lg-sub">Download on the</span>
-                    <span class="btn-appstore-lg-main">App Store</span>
-                </div>
-            </a>
-        </div>
-
-        <p class="cta-note">Free · iOS · No account required to browse</p>
+        <span class="cta-label">Free on iOS</span>
+        <h2>Ready to meet your<br>dog's new best friends?</h2>
+        <p>Join Austin's dog park community. Download free on the App Store and start connecting with the owners you see at the park every week.</p>
+        <a href="https://apps.apple.com/app/id6758127485" class="btn-dl-white" target="_blank" rel="noopener">
+            <svg width="20" height="24" viewBox="0 0 22 26" fill="none">
+                <path d="M18.07 13.77c-.03-3.14 2.56-4.65 2.68-4.73-1.46-2.14-3.73-2.43-4.53-2.46-1.93-.2-3.77 1.14-4.75 1.14-.98 0-2.5-1.11-4.12-1.08C5.07 6.68 3.08 7.9 1.99 9.8-.27 13.66.87 19.33 3.06 22.44c1.08 1.56 2.37 3.3 4.06 3.24 1.63-.07 2.24-1.05 4.2-1.05 1.96 0 2.51 1.05 4.23 1.02 1.75-.03 2.86-1.58 3.93-3.15.24-.35.47-.71.66-1.08-3.3-1.27-5.07-4.65-5.07-7.65zM15.18 4.4C16.07 3.33 16.67 1.83 16.5.3c-1.32.06-2.93.88-3.87 1.93-.84.95-1.58 2.47-1.38 3.93 1.47.11 2.97-.75 3.93-1.76z" fill="#1C1208"/>
+            </svg>
+            <div class="btn-dl-inner">
+                <span class="btn-dl-sub">Download on the</span>
+                <span class="btn-dl-main">App Store</span>
+            </div>
+        </a>
+        <p class="cta-note">Free · iOS · Austin, TX</p>
     </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────── -->
+<!-- ── FOOTER ─────────────────────────── -->
 <footer>
     <div class="footer-inner">
         <div>
