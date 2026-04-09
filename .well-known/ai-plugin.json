@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Sniffr ATX",
+  "name_for_model": "sniffr_atx",
+  "description_for_human": "Free dog park social app for Austin, TX. Connect with dog owners, plan playdates, discover parks.",
+  "description_for_model": "Sniffr ATX is a free mobile social networking app for dog owners in Austin, Texas. Users can connect via QR codes at dog parks, message other owners, plan playdates, and discover 30+ off-leash dog parks in Austin. Available on iOS App Store.",
+  "auth": { "type": "none" },
+  "api": { "type": "none" },
+  "logo_url": "https://sniffratx.app/og-image.png",
+  "contact_email": "dakotastpierre1@gmail.com",
+  "legal_info_url": "https://sniffratx.app/privacy.html"
+}

@@ -20,7 +20,37 @@
     <meta name="twitter:image" content="https://sniffratx.app/og-image.png" />
     <meta name="apple-itunes-app" content="app-id=6758127485" />
     <link rel="canonical" href="https://sniffratx.app/" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Sniffr ATX","operatingSystem":"iOS","applicationCategory":"SocialNetworkingApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://apps.apple.com/app/id6758127485"}</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Sniffr ATX",
+      "operatingSystem": "iOS",
+      "applicationCategory": "SocialNetworkingApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "url": "https://apps.apple.com/app/id6758127485",
+      "description": "Free dog park social app for Austin, TX. Connect with dog owners, plan playdates, discover parks.",
+      "featureList": "QR code scanning, In-app messaging, Smart calendar, Dog park map, Dog profiles"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sniffr ATX",
+      "url": "https://sniffratx.app",
+      "description": "Dog park social network for Austin, Texas dog owners",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "dakotastpierre1@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -731,6 +761,65 @@
             border-color: transparent;
         }
 
+        /* ── FAQ ─────────────────────────── */
+        .faq {
+            padding: 6rem 2rem;
+            background: var(--parchment-2);
+        }
+        .faq-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq .section-title {
+            margin-bottom: 3rem;
+        }
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+        }
+        .faq-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+        .faq-item summary {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-2);
+            transition: transform 0.2s;
+        }
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+        .faq-item p {
+            margin-top: 1rem;
+            color: var(--text-2);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        .faq-item a {
+            color: var(--orange);
+            text-decoration: underline;
+        }
+
         /* ── CTA ─────────────────────────── */
         .cta {
             background: var(--orange);
@@ -1138,6 +1227,98 @@
         </div>
     </div>
 </section>
+
+<!-- ── FAQ ────────────────────────────── -->
+<section class="faq" id="faq">
+    <div class="faq-inner">
+        <span class="eyebrow">Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>Is Sniffr ATX free?</summary>
+                <p>Yes, Sniffr ATX is completely free. No subscriptions, no premium tiers, no in-app purchases. We built this for the Austin dog community, not to make money off it.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What dog parks does Sniffr ATX cover?</summary>
+                <p>We cover 30+ off-leash dog parks across Austin including Zilker Off-Leash, Red Bud Isle, Mueller Lake Park, Auditorium Shores, Walnut Creek, Dick Nichols, Onion Creek, Bartholomew, and Norwood Estate — with more being added.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How do I connect with other dog owners?</summary>
+                <p>Scan QR codes at the park for instant connection. Every Sniffr ATX user gets a unique QR code on their profile. Just open the app, scan the other person's code, and you're connected — no usernames or phone numbers needed.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Is my information private?</summary>
+                <p>Yes. We use privacy-first messaging with encrypted data storage through Supabase. Your conversations stay between you and your pack. We never sell your data or show ads.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do I need to be in Austin to use Sniffr ATX?</summary>
+                <p>Sniffr ATX is built specifically for Austin dog owners. Our dog park map, community features, and local events are all focused on the Austin area. If you're an Austin dog owner, this app was made for you.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How do I download Sniffr ATX?</summary>
+                <p>Sniffr ATX is free on the iOS App Store. Just search "Sniffr ATX" or <a href="https://apps.apple.com/app/id6758127485" target="_blank" rel="noopener">tap here to download</a>.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Sniffr ATX free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Sniffr ATX is completely free. No subscriptions, no premium tiers, no in-app purchases. We built this for the Austin dog community, not to make money off it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What dog parks does Sniffr ATX cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We cover 30+ off-leash dog parks across Austin including Zilker Off-Leash, Red Bud Isle, Mueller Lake Park, Auditorium Shores, Walnut Creek, Dick Nichols, Onion Creek, Bartholomew, and Norwood Estate — with more being added."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I connect with other dog owners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scan QR codes at the park for instant connection. Every Sniffr ATX user gets a unique QR code on their profile. Just open the app, scan the other person's code, and you're connected — no usernames or phone numbers needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my information private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We use privacy-first messaging with encrypted data storage through Supabase. Your conversations stay between you and your pack. We never sell your data or show ads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be in Austin to use Sniffr ATX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sniffr ATX is built specifically for Austin dog owners. Our dog park map, community features, and local events are all focused on the Austin area. If you're an Austin dog owner, this app was made for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I download Sniffr ATX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sniffr ATX is free on the iOS App Store. Just search \"Sniffr ATX\" or tap here to download: https://apps.apple.com/app/id6758127485."
+      }
+    }
+  ]
+}
+</script>
 
 <!-- ── CTA ────────────────────────────── -->
 <section class="cta" id="download">
