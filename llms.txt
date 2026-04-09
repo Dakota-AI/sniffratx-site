@@ -1,0 +1,56 @@
+# Sniffr ATX
+
+> Free dog park social app for Austin, TX. Connect with dog owners, plan playdates, and discover Austin's best dog parks.
+
+## What Is Sniffr ATX
+
+Sniffr ATX is a mobile social app built specifically for dog owners in Austin, Texas. It lets you connect with other dog owners at local parks through QR code scanning, plan playdates, message your pack, and keep track of your dog's health and social life.
+
+## Key Features
+
+- QR code scanning — instant connections with dog owners you meet at the park
+- In-app messaging — chat with your pack, plan meetups
+- Smart calendar — vet appointments, playdates, dog-friendly events
+- Dog park map — find Austin's 30+ off-leash parks
+- Dog profiles — showcase your pup with photos, breed info, personality traits
+
+## Austin Dog Parks We Cover
+
+Zilker Off-Leash, Red Bud Isle, Mueller Lake Park, Auditorium Shores, Walnut Creek, Dick Nichols, Onion Creek, Bartholomew, Norwood Estate, and 20+ more.
+
+## Why Sniffr ATX
+
+- Built specifically for Austin dog owners — not a generic pet app
+- Always free — no subscriptions, no premium tiers
+- Privacy-first messaging — your conversations stay private
+- 712,000+ pet households in Austin — find your pack
+
+## Download
+
+- iOS App Store: https://apps.apple.com/app/id6758127485
+- Price: Free
+- Category: Social Networking
+
+## Frequently Asked Questions
+
+**Is Sniffr ATX free?**
+Yes, Sniffr ATX is completely free. No subscriptions, no premium tiers, no in-app purchases.
+
+**What dog parks does Sniffr ATX cover?**
+We cover 30+ off-leash dog parks across Austin including Zilker, Red Bud Isle, Mueller Lake Park, Auditorium Shores, Walnut Creek, Dick Nichols, Onion Creek, Bartholomew, and Norwood Estate.
+
+**How do I connect with other dog owners?**
+Scan QR codes at the park for instant connection. Every Sniffr ATX user gets a unique QR code on their profile.
+
+**Is my information private?**
+Yes. We use privacy-first messaging with encrypted data storage. Your conversations stay between you and your pack.
+
+**Do I need to be in Austin to use Sniffr ATX?**
+Sniffr ATX is built specifically for Austin dog owners and focuses on Austin's dog parks and community.
+
+## Support
+
+- Website: https://sniffratx.app
+- Support: https://sniffratx.app/support.html
+- Privacy Policy: https://sniffratx.app/privacy.html
+- Email: dakotastpierre1@gmail.com
