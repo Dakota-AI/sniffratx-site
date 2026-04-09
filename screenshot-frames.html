@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sniffr ATX — App Store Screenshot Frames</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest: #1A3A2A;
+      --forest-2: #2D5440;
+      --orange: #E8621A;
+      --orange-2: #F97316;
+      --parchment: #FAF5EE;
+      --parchment-2: #F0E8D8;
+      --dark: #0D0906;
+      --earth: #261608;
+      --white: #FFFFFF;
+    }
+
+    body {
+      background: #111;
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      padding: 3rem 2rem;
+    }
+
+    /* ── EXPORT GUIDE ── */
+    .guide {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      color: #aaa;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+    .guide strong { color: #fff; }
+    .guide h2 { color: #fff; font-size: 1rem; margin-bottom: 0.75rem; }
+    .guide code {
+      background: #333;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #f97316;
+    }
+
+    /* ── FRAMES GRID ── */
+    .frames-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 2100px;
+      margin: 0 auto;
+    }
+
+    /* ── SINGLE FRAME ── */
+    /* App Store 6.5" iPhone: 1284 × 2778 px
+       We design at 390 × 844 (CSS px).
+       To export at full res: Chrome DevTools → iPhone 14 Plus device → 3× DPR → screenshot */
+    .frame {
+      width: 390px;
+      height: 844px;
+      border-radius: 0;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .frame-label {
+      position: absolute;
+      top: -28px;
+      left: 0;
+      font-size: 0.75rem;
+      color: #666;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── PHONE MOCKUP ── */
+    .phone-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .phone {
+      width: 216px;
+      height: 468px;
+      background: #0D0906;
+      border-radius: 46px;
+      padding: 10px;
+      position: relative;
+      box-shadow:
+        0 0 0 1.5px rgba(255,255,255,0.12),
+        0 0 0 3px rgba(0,0,0,0.6),
+        0 32px 80px rgba(0,0,0,0.5),
+        0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 38px;
+      overflow: hidden;
+      background: #1A1A1A;
+      position: relative;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Dynamic island */
+    .phone::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 88px;
+      height: 28px;
+      background: #0D0906;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    /* Phone screen placeholder (shown when no img) */
+    .screen-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .screen-placeholder span {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      line-height: 1.5;
+      padding: 0 1rem;
+    }
+    .screen-placeholder .screen-icon {
+      font-size: 1.5rem;
+      opacity: 0.4;
+    }
+
+    /* ── SHARED TEXT STYLES ── */
+    .frame-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      opacity: 0.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .frame-headline {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+
+    .frame-sub {
+      font-size: 0.78rem;
+      line-height: 1.55;
+      text-align: center;
+      opacity: 0.65;
+      max-width: 280px;
+      font-weight: 500;
+    }
+
+    .frame-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-radius: 100px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── FRAME 1 — Forest Green — QR Scan ── */
+    .frame-1 {
+      background: var(--forest);
+    }
+
+    .frame-1 .top-text {
+      padding: 48px 28px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+
+    .frame-1 .frame-eyebrow { color: var(--orange-2); }
+
+    .frame-1 .frame-headline {
+      font-size: 2.85rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .frame-1 .accent { color: var(--orange-2); }
+
+    .frame-1 .frame-sub { color: var(--white); }
+
+    .frame-1 .phone-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 0;
+      flex: 1.4;
+      position: relative;
+    }
+
+    .frame-1 .phone-screen { background: #E8621A; }
+
+    /* Glow under phone */
+    .frame-1 .phone-section::before {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(232,98,26,0.35) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .frame-1 .bottom-tag {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .frame-1 .frame-badge {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* ── FRAME 2 — Parchment — Your Pack ── */
+    .frame-2 { background: var(--parchment); }
+
+    .frame-2 .top-bar {
+      width: 100%;
+      background: var(--forest);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .frame-2 .top-bar-logo {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: var(--white);
+      font-size: 1.1rem;
+    }
+
+    .frame-2 .top-bar-logo em { color: var(--orange-2); font-style: italic; }
+
+    .frame-2 .top-bar-paw {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    .frame-2 .top-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 28px;
+      text-align: center;
+    }
+
+    .frame-2 .frame-eyebrow { color: var(--orange); }
+
+    .frame-2 .frame-headline {
+      font-size: 2.85rem;
+      color: #1C1208;
+      margin-bottom: 0.75rem;
+    }
+
+    .frame-2 .accent { color: var(--orange); }
+
+    .frame-2 .frame-sub { color: #6B4F35; }
+
+    .frame-2 .phone-section {
+      flex: 1.8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .frame-2 .phone-screen { background: #FF6A10; }
+
+    .frame-2 .bottom-strip {
+      width: 100%;
+      background: var(--parchment-2);
+      border-top: 1px solid rgba(60,35,15,0.08);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .frame-2 .bottom-strip span {
+      font-size: 0.7rem;
+      color: #A08060;
+      font-weight: 600;
+    }
+
+    /* ── FRAME 3 — Dark — Messages ── */
+    .frame-3 { background: var(--dark); }
+
+    .frame-3::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 60%;
+      background: radial-gradient(ellipse at 30% 0%, rgba(232,98,26,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .frame-3 .top-text {
+      padding: 52px 28px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    .frame-3 .frame-eyebrow { color: var(--orange-2); }
+
+    .frame-3 .frame-headline {
+      font-size: 2.7rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .frame-3 .accent { color: var(--orange-2); }
+
+    .frame-3 .frame-sub { color: rgba(255,255,255,0.5); }
+
+    .frame-3 .phone-section {
+      flex: 1.5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      position: relative;
+      z-index: 2;
+    }
+
+    .frame-3 .phone-screen { background: #0F1117; }
+
+    .frame-3 .bottom-tag {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .frame-3 .frame-badge {
+      background: rgba(232,98,26,0.15);
+      color: var(--orange-2);
+      border: 1px solid rgba(232,98,26,0.25);
+    }
+
+    /* ── FRAME 4 — Orange — Playdates ── */
+    .frame-4 {
+      background: linear-gradient(160deg, #E8621A 0%, #F97316 50%, #D4891A 100%);
+    }
+
+    .frame-4::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(0,0,0,0.1) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .frame-4 .top-text {
+      padding: 52px 28px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    .frame-4 .frame-eyebrow { color: rgba(255,255,255,0.7); }
+
+    .frame-4 .frame-headline {
+      font-size: 2.85rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .frame-4 .frame-sub { color: rgba(255,255,255,0.75); }
+
+    .frame-4 .phone-section {
+      flex: 1.5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      position: relative;
+      z-index: 2;
+    }
+
+    .frame-4 .phone-screen { background: #FF6A10; }
+
+    .frame-4 .bottom-tag {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .frame-4 .frame-badge {
+      background: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* ── FRAME 5 — Earth — Dog Parks Map ── */
+    .frame-5 {
+      background: var(--earth);
+    }
+
+    .frame-5::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(212,137,26,0.15) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .frame-5 .top-text {
+      padding: 52px 28px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    .frame-5 .frame-eyebrow { color: var(--orange-2); }
+
+    .frame-5 .frame-headline {
+      font-size: 2.65rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .frame-5 .accent { color: var(--orange-2); }
+
+    .frame-5 .frame-sub { color: rgba(255,255,255,0.5); }
+
+    .frame-5 .phone-section {
+      flex: 1.5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      position: relative;
+      z-index: 2;
+    }
+
+    .frame-5 .phone-screen { background: #1C2B1A; }
+
+    .frame-5 .bottom-tag {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .frame-5 .frame-badge {
+      background: rgba(212,137,26,0.15);
+      color: #D4891A;
+      border: 1px solid rgba(212,137,26,0.25);
+    }
+
+    /* Map pins decoration on frame 5 */
+    .map-pins {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .map-pin {
+      position: absolute;
+      font-size: 1.4rem;
+      opacity: 0.18;
+      animation: pinFloat 4s ease-in-out infinite;
+    }
+
+    .map-pin:nth-child(1) { top: 15%; left: 12%; animation-delay: 0s; }
+    .map-pin:nth-child(2) { top: 25%; right: 10%; animation-delay: 1s; }
+    .map-pin:nth-child(3) { top: 65%; left: 8%; animation-delay: 2s; }
+    .map-pin:nth-child(4) { top: 55%; right: 14%; animation-delay: 0.5s; }
+
+    @keyframes pinFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ── SHARED LAYOUT HELPERS ── */
+    .top-text { flex: 1; display: flex; flex-direction: column; align-items: center; }
+    .phone-section { flex: 1.5; display: flex; justify-content: center; align-items: flex-end; }
+
+  </style>
+</head>
+<body>
+
+<!-- ── EXPORT GUIDE ── -->
+<div class="guide">
+  <h2>📱 How to Export at App Store Quality (1284 × 2778 px)</h2>
+  <ol>
+    <li>Open Chrome DevTools (<code>Cmd+Option+I</code>)</li>
+    <li>Click the <strong>device toolbar</strong> icon (top left of DevTools)</li>
+    <li>Set device to <strong>"iPhone 14 Plus"</strong> — or manually set 390×844 at <strong>3× DPR</strong></li>
+    <li>Close DevTools, reload the page</li>
+    <li>Right-click each frame → <strong>Inspect → Screenshot node</strong> or use the <code>Capture node screenshot</code> command from DevTools</li>
+    <li>Replace placeholder screens: each <code>&lt;img&gt;</code> has a <code>data-screen</code> comment — swap the <code>src</code> with your real simulator screenshot</li>
+  </ol>
+  <br>
+  <strong>Screenshot filenames to capture from simulator:</strong><br>
+  <code>screen-qr.png</code> · <code>screen-pack.png</code> · <code>screen-messages.png</code> · <code>screen-calendar.png</code> · <code>screen-map.png</code>
+</div>
+
+<!-- ── FRAMES ── -->
+<div class="frames-row">
+
+  <!-- FRAME 1: Forest Green — Scan & Connect -->
+  <div style="position:relative;">
+    <div class="frame-label">01 — QR Scan</div>
+    <div class="frame frame-1">
+      <div class="top-text">
+        <span class="frame-eyebrow">Sniffr ATX</span>
+        <h1 class="frame-headline">Scan.<br><span class="accent">Connect.</span><br>Play.</h1>
+        <p class="frame-sub">Skip the awkward number exchange.<br>One tap and you're connected.</p>
+      </div>
+      <div class="phone-section">
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="phone-screen">
+              <!-- Replace src with: screen-qr.png from simulator -->
+              <img src="screenshots/screen-qr.png" alt="QR Code screen" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="screen-placeholder" style="background:linear-gradient(160deg,#E8621A,#C04F10);display:none;">
+                <span class="screen-icon">📷</span>
+                <span>Replace with<br><strong>QR Code screen</strong><br>screenshot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-tag">
+        <span class="frame-badge">🐾 Free on the App Store</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAME 2: Parchment — Your Austin Pack -->
+  <div style="position:relative;">
+    <div class="frame-label">02 — Your Pack</div>
+    <div class="frame frame-2">
+      <div class="top-bar">
+        <span class="top-bar-logo">Sniffr <em>ATX</em></span>
+        <span class="top-bar-paw">🐾</span>
+      </div>
+      <div class="top-text" style="padding: 28px 28px 0;">
+        <span class="frame-eyebrow">Meet your neighborhood</span>
+        <h1 class="frame-headline" style="color:#1C1208;">Your<br><span class="accent">Austin Pack</span></h1>
+        <p class="frame-sub" style="color:#6B4F35;">Build your crew of dog-loving<br>Austinites, one park at a time.</p>
+      </div>
+      <div class="phone-section">
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="phone-screen">
+              <!-- Replace src with: screen-pack.png from simulator -->
+              <img src="screenshots/screen-pack.png" alt="Pack/Connections screen" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="screen-placeholder" style="background:linear-gradient(160deg,#FF6A10,#E05A0D);display:none;">
+                <span class="screen-icon">🐶</span>
+                <span>Replace with<br><strong>Pack / Connections</strong><br>screenshot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-strip">
+        <span>📍 Built for Austin dog owners</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAME 3: Dark — Messages -->
+  <div style="position:relative;">
+    <div class="frame-label">03 — Messages</div>
+    <div class="frame frame-3">
+      <div class="top-text">
+        <span class="frame-eyebrow">Stay connected</span>
+        <h1 class="frame-headline">Skip the<br><span class="accent">Awkward</span><br>Part.</h1>
+        <p class="frame-sub">No phone numbers. No apps to add.<br>Just message and make plans.</p>
+      </div>
+      <div class="phone-section">
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="phone-screen">
+              <!-- Replace src with: screen-messages.png from simulator -->
+              <img src="screenshots/screen-messages.png" alt="Messages screen" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="screen-placeholder" style="background:linear-gradient(160deg,#1A1A2E,#0F0A18);display:none;">
+                <span class="screen-icon">💬</span>
+                <span>Replace with<br><strong>Messages</strong><br>screenshot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-tag">
+        <span class="frame-badge">🔒 Private by design</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAME 4: Orange — Playdates -->
+  <div style="position:relative;">
+    <div class="frame-label">04 — Calendar</div>
+    <div class="frame frame-4">
+      <div class="top-text">
+        <span class="frame-eyebrow">Plan together</span>
+        <h1 class="frame-headline">Playdates,<br>Vet Visits,<br>Sorted.</h1>
+        <p class="frame-sub">Track everything in one place.<br>Never miss a playdate again.</p>
+      </div>
+      <div class="phone-section">
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="phone-screen">
+              <!-- Replace src with: screen-calendar.png from simulator -->
+              <img src="screenshots/screen-calendar.png" alt="Calendar screen" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="screen-placeholder" style="background:linear-gradient(160deg,#C04F10,#A03A08);display:none;">
+                <span class="screen-icon">📅</span>
+                <span>Replace with<br><strong>Calendar</strong><br>screenshot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-tag">
+        <span class="frame-badge">📅 Playdates + reminders</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAME 5: Earth — Dog Park Map -->
+  <div style="position:relative;">
+    <div class="frame-label">05 — Map</div>
+    <div class="frame frame-5">
+      <div class="map-pins">
+        <span class="map-pin">📍</span>
+        <span class="map-pin">📍</span>
+        <span class="map-pin">📍</span>
+        <span class="map-pin">📍</span>
+      </div>
+      <div class="top-text">
+        <span class="frame-eyebrow">30+ parks mapped</span>
+        <h1 class="frame-headline">Every<br><span class="accent">Austin</span><br>Dog Park.</h1>
+        <p class="frame-sub">From Zilker to Red Bud Isle —<br>find off-leash parks near you.</p>
+      </div>
+      <div class="phone-section">
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="phone-screen">
+              <!-- Replace src with: screen-map.png from simulator -->
+              <img src="screenshots/screen-map.png" alt="Dog Parks Map screen" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="screen-placeholder" style="background:linear-gradient(160deg,#1C3018,#0F1A0C);display:none;">
+                <span class="screen-icon">🗺️</span>
+                <span>Replace with<br><strong>Dog Park Map</strong><br>screenshot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-tag">
+        <span class="frame-badge">📍 30+ Austin dog parks</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
